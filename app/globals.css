@@ -1,26 +1,83 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
+  /* Default: Minimalist Theme */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0a0a;
+  --accent: #2563eb;
+  /* Royal Blue */
+  --accent-secondary: #f4f4f5;
+  /* Light gray for secondary elements */
+  --border-color: #e5e5e5;
+  --border-width: 1px;
+  --radius: 0.5rem;
+  /* Standard rounded */
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --font-main: var(--font-inter);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+[data-theme='neubrutalist'] {
+  /* Neubrutalist Theme */
+  --background: #FFFDF5;
+  /* Off-white/Cream */
+  --foreground: #000000;
+  /* Pitch Black */
+  --accent: #FF6B6B;
+  /* Vibrant Red/Pink */
+  --accent-secondary: #FCA311;
+  /* Mustard */
+  --border-color: #000000;
+  --border-width: 3px;
+  --radius: 0px;
+  /* Sharp corners */
+  --shadow: 5px 5px 0px 0px #000000;
+  /* Hard shadow */
+  --font-main: var(--font-space-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+[data-theme='discord'] {
+  /* DiscordOS Theme */
+  --background: #36393f;
+  /* Discord Dark Grey */
+  --foreground: #dcddde;
+  /* Discord Light Text */
+  --accent: #5865F2;
+  /* Blurple */
+  --accent-secondary: #2f3136;
+  /* Sidebar Grey */
+  --border-color: #202225;
+  /* Darker divider */
+  --border-width: 1px;
+  /* Subtle or 0px, keeping 1px for structure */
+  --radius: 8px;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+  --font-main: var(--font-inter);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@layer utilities {
+  .border-theme {
+    border-color: var(--border-color);
+    border-width: var(--border-width);
+  }
+
+  .rounded-theme {
+    border-radius: var(--radius);
+  }
+
+  .shadow-theme {
+    box-shadow: var(--shadow);
+  }
+
+  .font-theme {
+    font-family: var(--font-main);
+  }
 }
