@@ -18,6 +18,9 @@ const spaceMono = Space_Mono({
   display: "swap",
 });
 
+import Footer from "@/components/Footer";
+import ConsoleEffect from "@/components/ConsoleEffect";
+
 export const metadata: Metadata = {
   title: "The Living Lab",
   description: "A chameleon portfolio showcasing Web Solutions and Community Systems.",
@@ -32,11 +35,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${spaceMono.variable}`}>
         <ThemeProvider>
-          <div className="min-h-screen bg-background text-foreground font-theme transition-colors duration-300">
+          <div className="min-h-screen bg-background text-foreground font-theme transition-colors duration-300 flex flex-col">
+            <ConsoleEffect />
             <Navbar />
-            <main className="pt-[var(--nav-height)]">
+            <main className="pt-[var(--nav-height)] flex-grow">
               {children}
             </main>
+            <Footer />
           </div>
         </ThemeProvider>
       </body>
