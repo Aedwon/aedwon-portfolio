@@ -30,9 +30,27 @@ export default function HeroSection() {
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-theme tracking-tight mb-6 max-w-4xl">
                         I engineer <span className="text-accent underline decoration-4 underline-offset-4">digital ecosystems</span> that actually work.
                     </h1>
-                    <p className="text-lg md:text-xl opacity-70 max-w-2xl mx-auto">
-                        Stop settling for generic templates. I build high-performance web solutions and thriving automated communities tailored to your business goals.
+                    <p className="text-lg md:text-xl opacity-70 max-w-2xl mx-auto mb-8">
+                        Freelance Web Developer & Community Architect. I build high-performance E-Commerce sites, SaaS platforms, and automated Discord systems that drive real growth.
                     </p>
+
+                    {/* Tech Ticker / Capabilities */}
+                    <div className={`
+                        inline-flex items-center gap-6 px-6 py-3 rounded-full text-sm font-bold opacity-60
+                        ${theme === 'minimalist' ? 'border border-theme' : ''}
+                        ${theme === 'neubrutalist' ? 'bg-white border-2 border-black text-black opacity-100' : ''}
+                        ${theme === 'discord' ? 'bg-[#2f3136] text-gray-400' : ''}
+                    `}>
+                        <span>Next.js</span>
+                        <span>•</span>
+                        <span>React</span>
+                        <span>•</span>
+                        <span>TypeScript</span>
+                        <span>•</span>
+                        <span>Node.js</span>
+                        <span>•</span>
+                        <span>Discord.js</span>
+                    </div>
                 </motion.div>
             </div>
 
@@ -60,17 +78,20 @@ export default function HeroSection() {
                             <Code className="w-8 h-8 text-accent" />
                         </div>
 
-                        <h2 className="text-3xl md:text-4xl font-bold font-theme tracking-tight">
-                            Web Development
-                        </h2>
+                        <div>
+                            <h2 className="text-3xl md:text-4xl font-bold font-theme tracking-tight mb-2">
+                                Web Development
+                            </h2>
+                            <div className="text-sm font-bold uppercase opacity-60 tracking-wider">Acquisition & Conversion</div>
+                        </div>
 
                         <p className="text-lg opacity-80 font-medium">
-                            Speed, SEO, and Conversion. I build custom Next.js applications that turn visitors into customers.
+                            I build custom, high-speed applications for E-Commerce and SaaS. No bloat, just performance that converts visitors into customers.
                         </p>
 
                         <div className="flex flex-col gap-2 text-sm opacity-70">
-                            <span className="flex items-center gap-2"><Sparkles className="w-4 h-4" /> Pixel-perfect Designs</span>
-                            <span className="flex items-center gap-2"><Sparkles className="w-4 h-4" /> &lt; 0.2s Load Times</span>
+                            <span className="flex items-center gap-2"><Sparkles className="w-4 h-4" /> Next.js & Shopify Solutions</span>
+                            <span className="flex items-center gap-2"><Sparkles className="w-4 h-4" /> &lt; 0.2s Load Times (SEO Optimized)</span>
                         </div>
 
                         <Link href="/web-solutions">
@@ -106,17 +127,20 @@ export default function HeroSection() {
                             <Users className="w-8 h-8 text-accent" />
                         </div>
 
-                        <h2 className="text-3xl md:text-4xl font-bold font-theme tracking-tight">
-                            Community Engineering
-                        </h2>
+                        <div>
+                            <h2 className="text-3xl md:text-4xl font-bold font-theme tracking-tight mb-2">
+                                Community Engineering
+                            </h2>
+                            <div className="text-sm font-bold uppercase opacity-60 tracking-wider">Retention & Engagement</div>
+                        </div>
 
                         <p className="text-lg opacity-80 font-medium">
-                            Engagement automation. I build custom Discord bots and reputation systems that keep your community active.
+                            I architect autonomous Discord bots and gamification systems that keep your community active 24/7 without manual moderation.
                         </p>
 
                         <div className="flex flex-col gap-2 text-sm opacity-70">
-                            <span className="flex items-center gap-2"><Sparkles className="w-4 h-4" /> 24/7 Automated Moderation</span>
-                            <span className="flex items-center gap-2"><Sparkles className="w-4 h-4" /> Gamified Verification Flows</span>
+                            <span className="flex items-center gap-2"><Sparkles className="w-4 h-4" /> Custom Bot Development</span>
+                            <span className="flex items-center gap-2"><Sparkles className="w-4 h-4" /> Automated Sentiment Analysis</span>
                         </div>
 
                         <Link href="/community-systems">
