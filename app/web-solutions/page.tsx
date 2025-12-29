@@ -55,7 +55,7 @@ export default function WebSolutions() {
         : PROJECTS.filter(p => p.category === activeCategory);
 
     return (
-        <main className="min-h-screen p-8 md:p-12 lg:p-24 bg-background transition-colors duration-300">
+        <main className="min-h-screen px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-24 bg-background transition-colors duration-300">
 
             {/* Page Header */}
             <div className="mb-16 max-w-2xl">

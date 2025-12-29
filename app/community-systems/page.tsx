@@ -10,7 +10,7 @@ export default function CommunitySystems() {
     const { theme } = useTheme();
 
     return (
-        <main className="min-h-screen p-6 md:p-12 lg:p-24 bg-background transition-colors duration-300">
+        <main className="min-h-screen px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-24 bg-background transition-colors duration-300">
 
             {/* Header / Dashboard Title */}
             <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">

@@ -8,7 +8,7 @@ export default function ContactPage() {
     const { theme } = useTheme();
 
     return (
-        <main className="min-h-screen flex items-center justify-center p-6 md:p-12 bg-background transition-colors duration-300">
+        <main className="min-h-screen flex items-center justify-center px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-24 bg-background transition-colors duration-300">
 
             <div className={`
         w-full max-w-2xl

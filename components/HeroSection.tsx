@@ -16,7 +16,7 @@ export default function HeroSection() {
                 whileHover={{ flex: 1.5 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
                 className={`
-          group relative flex w-full md:w-auto flex-col items-center justify-center p-8 md:p-12
+          group relative flex w-full md:w-auto flex-col items-center justify-center px-6 py-12 md:px-12 md:py-20
           bg-background text-foreground transition-colors duration-300
           border-b md:border-b-0 md:border-r border-theme
           ${theme === 'discord' ? 'md:m-4 md:mr-2 rounded-theme bg-accent-secondary' : ''}
@@ -57,7 +57,7 @@ export default function HeroSection() {
                 whileHover={{ flex: 1.5 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
                 className={`
-          group relative flex w-full md:w-auto flex-col items-center justify-center p-8 md:p-12
+          group relative flex w-full md:w-auto flex-col items-center justify-center px-6 py-12 md:px-12 md:py-20
           bg-background text-foreground transition-colors duration-300
           ${theme === 'discord' ? 'md:m-4 md:ml-2 rounded-theme bg-accent-secondary' : ''}
         `}
