@@ -8,13 +8,13 @@ const STEPS = [
     {
         id: 1,
         title: "Discovery & Audit",
-        description: "We dive deep into your current infrastructure and business goals. No assumptions, just data.",
+        description: "I dive deep into your current infrastructure and business goals. No assumptions, just data.",
         icon: Search,
     },
     {
         id: 2,
         title: "Blueprint & Strategy",
-        description: "Architecting the solution. We deliver a comprehensive technical roadmap before writing a single line of code.",
+        description: "Architecting the solution. I deliver a comprehensive technical roadmap before writing a single line of code.",
         icon: PenTool,
     },
     {
@@ -26,7 +26,7 @@ const STEPS = [
     {
         id: 4,
         title: "Handoff & Training",
-        description: "Complete documentation and team training. We ensure you own your system, not rent it.",
+        description: "Complete documentation and team training. I ensure you own your system, not rent it.",
         icon: Rocket,
     },
 ];
@@ -43,7 +43,7 @@ export default function ProcessPage() {
                         The Process
                     </h1>
                     <p className="opacity-80 text-lg">
-                        From chaos to clarity. Our proven methodology ensuring high-impact delivery.
+                        From chaos to clarity. My proven methodology ensuring high-impact delivery.
                     </p>
                 </div>
 

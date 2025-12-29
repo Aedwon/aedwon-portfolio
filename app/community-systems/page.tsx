@@ -18,8 +18,8 @@ export default function CommunitySystems() {
                     <h1 className="text-4xl md:text-6xl font-bold font-theme tracking-tight mb-2">
                         Community Systems
                     </h1>
-                    <p className="opacity-80 text-lg max-w-xl">
-                        Retention engines. We build the infrastructure that keeps communities alive, engaged, and safe.
+                    <p className="text-xl opacity-80 max-w-2xl font-theme">
+                        Retention engines. I build the infrastructure that keeps communities alive, engaged, and safe.
                     </p>
                 </div>
                 <div className={`

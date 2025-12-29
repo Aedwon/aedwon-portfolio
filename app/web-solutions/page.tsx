@@ -62,9 +62,9 @@ export default function WebSolutions() {
                 <h1 className="text-5xl md:text-7xl font-bold font-theme tracking-tight mb-6">
                     Web Solutions
                 </h1>
-                <p className="text-xl opacity-80">
-                    We don't just write code. We engineer digital assets that solve specific business problems.
-                    Performance, conversion, and scalability are our KPIs.
+                <p className="text-xl max-w-3xl opacity-80 leading-relaxed font-theme">
+                    I don't just write code. I engineer digital assets that solve specific business problems.
+                    Performance, conversion, and scalability are my KPIs.
                 </p>
             </div>
 
