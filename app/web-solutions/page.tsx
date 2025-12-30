@@ -63,7 +63,7 @@ export default function WebSolutions() {
                     Web Solutions
                 </h1>
                 <p className="text-xl max-w-3xl opacity-80 leading-relaxed font-theme">
-                    I don't just write code. I engineer digital assets that solve specific business problems.
+                    I don&apos;t just write code. I engineer digital assets that solve specific business problems.
                     Performance, conversion, and scalability are my KPIs.
                 </p>
             </div>

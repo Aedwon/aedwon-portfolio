@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Globe, Users, Code, Sparkles } from "lucide-react";
+import { ArrowRight, Users, Code, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "./ThemeContext";
 
@@ -25,7 +25,7 @@ export default function HeroSection() {
                         text-xl md:text-2xl font-bold mb-4 font-theme opacity-80
                         ${theme === 'discord' ? 'text-accent' : ''}
                     `}>
-                        Hi, I'm Aedwon.
+                        Hi, I&apos;m Aedwon.
                     </h2>
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-theme tracking-tight mb-6 max-w-4xl">
                         I engineer <span className="text-accent underline decoration-4 underline-offset-4">digital ecosystems</span> that actually work.

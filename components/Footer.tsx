@@ -1,8 +1,10 @@
 "use client";
 
 import { useTheme } from "./ThemeContext";
-import { Github, Linkedin, Twitter, Terminal, Heart } from "lucide-react";
+import { Github, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
+
+import Logo from "./Logo";
 
 export default function Footer() {
     const { theme } = useTheme();
@@ -17,20 +19,23 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 flex flex-col md:flex-row items-center justify-between gap-8">
 
                 {/* Brand / Logo Area */}
-                <div className="flex flex-col items-center md:items-start gap-1">
-                    <h3 className={`
-                        text-lg font-bold font-theme tracking-tight
-                        ${theme === 'neubrutalist' ? 'uppercase tracking-widest text-accent' : ''}
-                    `}>
-                        The Living Lab
-                    </h3>
+                <div className="flex flex-col items-center md:items-start gap-3">
+                    <div className="flex items-center gap-2">
+                        <Logo className="w-8 h-8" />
+                        <h3 className={`
+                            text-lg font-bold font-theme tracking-tight
+                            ${theme === 'neubrutalist' ? 'uppercase tracking-widest text-accent' : ''}
+                        `}>
+                            The Living Lab
+                        </h3>
+                    </div>
                     <p className={`
                         text-sm opacity-60 flex items-center gap-1
                          ${theme === 'discord' ? 'text-xs uppercase font-bold text-accent' : ''}
                     `}>
                         {theme === 'minimalist' && "Designed & Built by Aedwon"}
                         {theme === 'neubrutalist' && "NO TEMPLATES // ALL CODE"}
-                        {theme === 'discord' && <> <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" /> Aedwon is online</>}
+                        {theme === 'discord' && <> <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" /> Aedwon is online</>}
                     </p>
                 </div>
 

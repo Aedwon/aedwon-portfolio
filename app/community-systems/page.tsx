@@ -138,7 +138,7 @@ export default function CommunitySystems() {
                             `}
                                 />
                             </div>
-                            <div className="text-right text-xs opacity-60">Next reward: "Super Fan" Role</div>
+                            <div className="text-right text-xs opacity-60">Next reward: &quot;Super Fan&quot; Role</div>
                         </div>
 
                         <div className="hidden md:block text-right">

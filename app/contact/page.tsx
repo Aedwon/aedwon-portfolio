@@ -1,8 +1,7 @@
 "use client";
 
 import { useTheme } from "@/components/ThemeContext";
-import { motion } from "framer-motion";
-import { Send, Hash, ChevronDown } from "lucide-react";
+import { Send, ChevronDown } from "lucide-react";
 
 export default function ContactPage() {
     const { theme } = useTheme();

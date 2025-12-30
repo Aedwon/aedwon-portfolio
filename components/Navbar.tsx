@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useTheme } from "./ThemeContext";
 import { Briefcase, Zap, Gamepad2 } from "lucide-react";
 
+import Logo from "./Logo";
+
 export default function Navbar() {
     const { theme, setTheme } = useTheme();
 
@@ -13,7 +15,8 @@ export default function Navbar() {
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 flex h-16 items-center justify-between border-b border-theme bg-background px-6 transition-colors duration-300">
             <div className="flex items-center gap-2">
-                <div className="text-xl font-bold font-theme tracking-tight">
+                <Logo className="w-8 h-8 md:w-10 md:h-10" />
+                <div className="text-xl font-bold font-theme tracking-tight hidden md:block">
                     The Living Lab
                 </div>
             </div>
