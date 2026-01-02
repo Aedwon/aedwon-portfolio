@@ -16,6 +16,7 @@
   /* Standard rounded */
   --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
   --font-main: var(--font-inter);
+  --nav-height: 64px;
 }
 
 [data-theme='neubrutalist'] {
@@ -54,6 +55,7 @@
   --radius: 8px;
   --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
   --font-main: var(--font-inter);
+  --nav-height: 48px;
 }
 
 body {
@@ -80,4 +82,89 @@ body {
   .font-theme {
     font-family: var(--font-main);
   }
+
+  /* Discord-specific utilities */
+  .discord-embed {
+    background: #2f3136;
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+    padding: 1rem;
+  }
+
+  .discord-message {
+    padding: 0.5rem 1rem;
+    margin: 0 1rem;
+    border-radius: 4px;
+  }
+
+  .discord-message:hover {
+    background: rgba(4, 4, 5, 0.07);
+  }
+
+  .discord-ping {
+    background: rgba(88, 101, 242, 0.3);
+    color: #dee0fc;
+    padding: 0 2px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+
+  .discord-mention {
+    background: rgba(88, 101, 242, 0.3);
+    color: #c9cdfb;
+    padding: 0 2px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .discord-mention:hover {
+    background: #5865F2;
+    color: white;
+  }
+
+  .discord-code {
+    background: #2f3136;
+    border: 1px solid #202225;
+    border-radius: 4px;
+    padding: 0.5rem;
+    font-family: monospace;
+    font-size: 0.875rem;
+  }
+
+  .discord-divider {
+    height: 1px;
+    background: #42464d;
+    margin: 1rem 0;
+  }
+
+  .discord-timestamp {
+    color: #72767d;
+    font-size: 0.75rem;
+    margin-left: 0.5rem;
+  }
+}
+
+/* Discord scrollbar styling */
+[data-theme='discord'] ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+[data-theme='discord'] ::-webkit-scrollbar-track {
+  background: #2f3136;
+  border-radius: 4px;
+}
+
+[data-theme='discord'] ::-webkit-scrollbar-thumb {
+  background: #202225;
+  border-radius: 4px;
+}
+
+[data-theme='discord'] ::-webkit-scrollbar-thumb:hover {
+  background: #1a1b1e;
+}
+
+/* Hide footer in Discord theme */
+[data-theme='discord'] footer {
+  display: none;
 }

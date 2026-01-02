@@ -3,6 +3,7 @@ import { Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeContext";
 import Navbar from "@/components/Navbar";
+import DiscordLayout from "@/components/DiscordLayout";
 
 // Font configurations
 const inter = Inter({
@@ -39,7 +40,9 @@ export default function RootLayout({
             <ConsoleEffect />
             <Navbar />
             <main className="pt-[var(--nav-height)] flex-grow">
-              {children}
+              <DiscordLayout>
+                {children}
+              </DiscordLayout>
             </main>
             <Footer />
           </div>
@@ -48,3 +51,4 @@ export default function RootLayout({
     </html>
   );
 }
+

@@ -4,9 +4,15 @@ import { motion } from "framer-motion";
 import { ArrowRight, Users, Code, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "./ThemeContext";
+import DiscordHeroSection from "./DiscordHeroSection";
 
 export default function HeroSection() {
     const { theme } = useTheme();
+
+    // Render Discord-specific layout
+    if (theme === 'discord') {
+        return <DiscordHeroSection />;
+    }
 
     return (
         <div className="flex flex-col min-h-[calc(100vh-var(--nav-height))] w-full overflow-hidden bg-background transition-colors duration-300">
@@ -21,10 +27,7 @@ export default function HeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                 >
-                    <h2 className={`
-                        text-xl md:text-2xl font-bold mb-4 font-theme opacity-80
-                        ${theme === 'discord' ? 'text-accent' : ''}
-                    `}>
+                    <h2 className="text-xl md:text-2xl font-bold mb-4 font-theme opacity-80">
                         Hey, I&apos;m Aedwon
                     </h2>
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-theme tracking-tight mb-6 max-w-4xl">
@@ -39,7 +42,6 @@ export default function HeroSection() {
                         inline-flex items-center gap-6 px-6 py-3 rounded-full text-sm font-bold opacity-60
                         ${theme === 'minimalist' ? 'border border-theme' : ''}
                         ${theme === 'neubrutalist' ? 'bg-white border-2 border-black text-black opacity-100' : ''}
-                        ${theme === 'discord' ? 'bg-[#2f3136] text-gray-400' : ''}
                     `}>
                         <span>Next.js</span>
                         <span>•</span>
@@ -66,15 +68,11 @@ export default function HeroSection() {
                         group relative flex-1 flex flex-col items-center justify-center px-6 py-12 md:px-12 md:py-20
                         bg-background text-foreground transition-colors duration-300
                         border-b md:border-b-0 md:border-r border-theme
-                        ${theme === 'discord' ? 'bg-[#2f3136]' : ''}
                         hover:bg-accent/5
                     `}
                 >
                     <div className="max-w-md flex flex-col items-start gap-6">
-                        <div className={`
-                            p-4 rounded-theme border border-theme bg-background shadow-theme
-                            ${theme === 'discord' ? 'bg-[#36393f] border-none' : ''}
-                        `}>
+                        <div className="p-4 rounded-theme border border-theme bg-background shadow-theme">
                             <Code className="w-8 h-8 text-accent" />
                         </div>
 
@@ -99,7 +97,6 @@ export default function HeroSection() {
                                 flex items-center gap-2 px-8 py-4 text-base font-bold transition-all mt-4
                                 ${theme === 'minimalist' ? 'bg-foreground text-background hover:opacity-90 rounded-none' : ''}
                                 ${theme === 'neubrutalist' ? 'bg-accent text-black border-[3px] border-black shadow-[4px_4px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#000] rounded-none' : ''}
-                                ${theme === 'discord' ? 'bg-accent text-white hover:opacity-90 rounded-theme' : ''}
                             `}>
                                 See What I&apos;ve Built <ArrowRight className="w-5 h-5" />
                             </button>
@@ -115,15 +112,11 @@ export default function HeroSection() {
                     className={`
                         group relative flex-1 flex flex-col items-center justify-center px-6 py-12 md:px-12 md:py-20
                         bg-background text-foreground transition-colors duration-300
-                        ${theme === 'discord' ? 'bg-[#36393f]' : ''}
                         hover:bg-accent/5
                     `}
                 >
                     <div className="max-w-md flex flex-col items-start gap-6">
-                        <div className={`
-                            p-4 rounded-theme border border-theme bg-background shadow-theme
-                            ${theme === 'discord' ? 'bg-[#2f3136] border-none' : ''}
-                        `}>
+                        <div className="p-4 rounded-theme border border-theme bg-background shadow-theme">
                             <Users className="w-8 h-8 text-accent" />
                         </div>
 
@@ -148,7 +141,6 @@ export default function HeroSection() {
                                 flex items-center gap-2 px-8 py-4 text-base font-bold transition-all mt-4
                                 ${theme === 'minimalist' ? 'border border-theme hover:bg-accent-secondary rounded-none' : ''}
                                 ${theme === 'neubrutalist' ? 'bg-white text-black border-[3px] border-black shadow-[4px_4px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#000] rounded-none' : ''}
-                                ${theme === 'discord' ? 'bg-[#4f545c] text-white hover:bg-[#5d6269] rounded-theme' : ''}
                             `}>
                                 See It In Action <ArrowRight className="w-5 h-5" />
                             </button>

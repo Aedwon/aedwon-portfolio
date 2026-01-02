@@ -39,6 +39,122 @@ export default function Navbar() {
         }
     };
 
+    // Discord theme renders a simplified title bar (navigation is in sidebar)
+    if (theme === 'discord') {
+        return (
+            <>
+                <style jsx global>{`
+                    @keyframes bounceDiscord {
+                        0%, 100% { 
+                            transform: translateY(0);
+                            box-shadow: 0 0 0 0 rgba(88, 101, 242, 0);
+                        }
+                        10%, 30%, 50% { 
+                            transform: translateY(-4px);
+                            box-shadow: 0 4px 20px 4px rgba(88, 101, 242, 0.4);
+                        }
+                        20%, 40% { 
+                            transform: translateY(0);
+                            box-shadow: 0 0 10px 2px rgba(88, 101, 242, 0.2);
+                        }
+                        60% {
+                            transform: translateY(-2px);
+                            box-shadow: 0 2px 10px 2px rgba(88, 101, 242, 0.3);
+                        }
+                        70% {
+                            transform: translateY(0);
+                        }
+                    }
+                    
+                    .theme-toggle-bounce-discord {
+                        animation: bounceDiscord 1.5s ease-in-out;
+                    }
+                `}</style>
+                <nav className="fixed top-0 left-0 right-0 z-50 flex h-12 items-center bg-[#202225] border-b border-[#1a1b1e]">
+                    {/* Server Icon Section - matches sidebar width */}
+                    <div className="hidden md:flex w-[72px] h-full items-center justify-center shrink-0 border-r border-[#1a1b1e]">
+                        <div className="w-10 h-10 rounded-2xl bg-accent flex items-center justify-center hover:rounded-xl transition-all duration-200 cursor-pointer">
+                            <Logo className="w-6 h-6 text-white" />
+                        </div>
+                    </div>
+
+                    {/* Server Name Section - matches channel sidebar width */}
+                    <div className="hidden md:flex w-60 h-full items-center px-4 shrink-0 border-r border-[#1a1b1e] bg-[#2f3136]">
+                        <div className="flex items-center gap-3 flex-1 min-w-0">
+                            {/* Server Badge/Icon */}
+                            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent to-[#4752c4] flex items-center justify-center shrink-0">
+                                <span className="text-white font-bold text-sm">TL</span>
+                            </div>
+                            <div className="flex flex-col min-w-0">
+                                <span className="font-semibold text-white text-sm truncate">The Living Lab</span>
+                                <span className="text-[10px] text-gray-400 uppercase tracking-wide">Portfolio Server</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Mobile: Show logo and name */}
+                    <div className="flex md:hidden items-center gap-3 px-4">
+                        <div className="w-8 h-8 rounded-xl bg-accent flex items-center justify-center">
+                            <Logo className="w-5 h-5 text-white" />
+                        </div>
+                        <span className="font-bold text-white text-sm">The Living Lab</span>
+                    </div>
+
+                    {/* Spacer + Controls */}
+                    <div className="flex-1 flex items-center justify-end px-4 gap-3">
+                        {/* Theme Switcher */}
+                        <div className="relative">
+                            <button
+                                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                                className={`flex items-center gap-2 px-3 py-1.5 text-xs font-medium bg-[#36393f] hover:bg-[#404449] text-gray-200 rounded transition-all ${isAnimating ? 'theme-toggle-bounce-discord' : ''}`}
+                            >
+                                <Gamepad2 className="w-3.5 h-3.5" />
+                                <span>DiscordOS</span>
+                            </button>
+
+                            {isDropdownOpen && (
+                                <>
+                                    <div
+                                        className="fixed inset-0 z-10"
+                                        onClick={() => setIsDropdownOpen(false)}
+                                    />
+                                    <div className="absolute right-0 top-full mt-2 w-48 bg-[#18191c] shadow-xl rounded-md p-1.5 z-20 border border-[#1a1b1e]">
+                                        <button
+                                            onClick={() => { setTheme('minimalist'); setIsDropdownOpen(false); }}
+                                            className="flex items-center w-full gap-2 px-3 py-2 text-sm hover:bg-[#36393f] rounded text-gray-200"
+                                        >
+                                            <Briefcase className="w-4 h-4" /> Minimalist
+                                        </button>
+                                        <button
+                                            onClick={() => { setTheme('neubrutalist'); setIsDropdownOpen(false); }}
+                                            className="flex items-center w-full gap-2 px-3 py-2 text-sm hover:bg-[#36393f] rounded text-gray-200"
+                                        >
+                                            <Zap className="w-4 h-4" /> Neubrutalist
+                                        </button>
+                                        <button
+                                            onClick={() => { setTheme('discord'); setIsDropdownOpen(false); }}
+                                            className="flex items-center w-full gap-2 px-3 py-2 text-sm hover:bg-[#36393f] rounded text-gray-200 bg-[#36393f] text-white"
+                                        >
+                                            <Gamepad2 className="w-4 h-4" /> DiscordOS
+                                        </button>
+                                    </div>
+                                </>
+                            )}
+                        </div>
+
+                        {/* Window Controls (decorative) */}
+                        <div className="hidden md:flex items-center gap-2 ml-2">
+                            <div className="w-3 h-3 rounded-full bg-[#3ba55c] opacity-60 hover:opacity-100 cursor-pointer transition-opacity" />
+                            <div className="w-3 h-3 rounded-full bg-[#faa61a] opacity-60 hover:opacity-100 cursor-pointer transition-opacity" />
+                            <div className="w-3 h-3 rounded-full bg-[#ed4245] opacity-60 hover:opacity-100 cursor-pointer transition-opacity" />
+                        </div>
+                    </div>
+                </nav>
+            </>
+        );
+    }
+
+    // Default navbar for Minimalist and Neubrutalist themes
     return (
         <>
             <style jsx global>{`
@@ -66,38 +182,12 @@ export default function Navbar() {
                     90% { transform: rotate(0deg); }
                 }
                 
-                @keyframes bounceDiscord {
-                    0%, 100% { 
-                        transform: translateY(0);
-                        box-shadow: 0 0 0 0 rgba(88, 101, 242, 0);
-                    }
-                    10%, 30%, 50% { 
-                        transform: translateY(-4px);
-                        box-shadow: 0 4px 20px 4px rgba(88, 101, 242, 0.4);
-                    }
-                    20%, 40% { 
-                        transform: translateY(0);
-                        box-shadow: 0 0 10px 2px rgba(88, 101, 242, 0.2);
-                    }
-                    60% {
-                        transform: translateY(-2px);
-                        box-shadow: 0 2px 10px 2px rgba(88, 101, 242, 0.3);
-                    }
-                    70% {
-                        transform: translateY(0);
-                    }
-                }
-                
                 .theme-toggle-pulse-minimalist {
                     animation: pulseMinimalist 1.5s ease-in-out;
                 }
                 
                 .theme-toggle-wiggle {
                     animation: wiggleNeubrutalist 1.5s ease-in-out;
-                }
-                
-                .theme-toggle-bounce-discord {
-                    animation: bounceDiscord 1.5s ease-in-out;
                 }
             `}</style>
             <nav className="fixed top-0 left-0 right-0 z-50 flex h-16 items-center justify-between border-b border-theme bg-background px-6 transition-colors duration-300">
@@ -132,7 +222,7 @@ export default function Navbar() {
                             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                             className={`flex items-center gap-2 px-3 py-2 text-sm font-medium border border-theme rounded-theme hover:bg-accent-secondary transition-all ${getAnimationClass()}`}
                         >
-                            <span className="capitalize">{theme === 'discord' ? 'DiscordOS' : theme}</span>
+                            <span className="capitalize">{theme}</span>
                         </button>
 
                         {isDropdownOpen && (
@@ -156,7 +246,7 @@ export default function Navbar() {
                                     </button>
                                     <button
                                         onClick={() => { setTheme('discord'); setIsDropdownOpen(false); }}
-                                        className={`flex items-center w-full gap-2 px-3 py-2 text-sm hover:bg-accent-secondary rounded-theme ${theme === 'discord' ? 'bg-accent-secondary font-bold' : ''}`}
+                                        className="flex items-center w-full gap-2 px-3 py-2 text-sm hover:bg-accent-secondary rounded-theme"
                                     >
                                         <Gamepad2 className="w-4 h-4" /> DiscordOS
                                     </button>
