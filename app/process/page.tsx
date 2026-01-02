@@ -52,15 +52,15 @@ export default function ProcessPage() {
     const { theme } = useTheme();
 
     return (
-        <main className="min-h-screen px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-24 bg-background transition-colors duration-300">
+        <main className="min-h-screen px-6 py-16 md:px-12 md:py-24 lg:px-24 bg-background transition-colors duration-300">
 
             <div className="max-w-4xl mx-auto">
                 <div className="mb-16 text-center">
                     <p className={`text-sm font-bold uppercase tracking-widest mb-4 ${theme === 'discord' ? 'text-accent' : 'opacity-60'}`}>
                         How I Work
                     </p>
-                    <h1 className="text-4xl md:text-6xl font-bold font-theme tracking-tight mb-4">
-                        From Chaos to Clarity
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-theme tracking-tight mb-4">
+                        Predictable Growth
                     </h1>
                     <p className="opacity-80 text-lg max-w-2xl mx-auto">
                         A proven methodology for building and managing communities that actually grow.
@@ -143,7 +143,7 @@ export default function ProcessPage() {
                     ${theme === 'neubrutalist' ? 'bg-accent border-[3px] border-black shadow-[4px_4px_0px_#000]' : ''}
                     ${theme === 'discord' ? 'bg-accent' : ''}
                 `}>
-                    <h3 className={`text-2xl font-bold font-theme mb-4 ${theme !== 'minimalist' ? 'text-white' : ''}`}>
+                    <h3 className={`text-3xl md:text-4xl font-bold font-theme mb-4 ${theme !== 'minimalist' ? 'text-white' : ''}`}>
                         Ready to Start Your Project?
                     </h3>
                     <p className={`mb-6 ${theme === 'minimalist' ? 'opacity-70' : 'text-white/80'}`}>

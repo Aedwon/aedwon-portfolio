@@ -49,7 +49,7 @@ export default function HowItWorks() {
             <div className="max-w-6xl mx-auto">
                 <div className="mb-16 text-center">
                     <h2 className="text-3xl md:text-5xl font-bold font-theme tracking-tight mb-4">
-                        From Chaos to Clarity
+                        Predictable Growth
                     </h2>
                     <p className="opacity-70 text-lg max-w-2xl mx-auto">
                         A proven methodology that delivers high-impact results. Here&apos;s exactly how we&apos;ll work together.

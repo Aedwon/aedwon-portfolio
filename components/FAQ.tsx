@@ -12,7 +12,7 @@ const FAQS = [
     },
     {
         question: "How do you handle communication?",
-        answer: "You'll have direct access to me via Slack or Discord. I send weekly progress updates with demos, and we can hop on calls whenever needed. No project managers in between - just you and me.",
+        answer: "You'll have direct access to me throughout the project. I send weekly progress updates with demos, and we can hop on calls whenever needed. No project managers in between - just you and me.",
     },
     {
         question: "What happens after launch?",

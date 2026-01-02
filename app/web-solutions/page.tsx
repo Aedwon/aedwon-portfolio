@@ -224,6 +224,178 @@ export default function WebSolutions() {
                 </motion.div>
             </section>
 
+
+
+            {/* Investment Section */}
+            <section className={`
+                px-6 py-16 md:px-12 md:py-24 lg:px-24
+                ${theme === 'discord' ? 'bg-[#2f3136]' : 'bg-accent-secondary/5'}
+            `}>
+                <div className="mb-12 text-center">
+                    <h2 className="text-3xl md:text-4xl font-bold font-theme tracking-tight mb-4">
+                        Simple, Transparent Pricing
+                    </h2>
+                    <p className="text-lg opacity-70 max-w-2xl mx-auto">
+                        High-impact results with no hidden fees. Choose the tier that matches your stage of growth.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto items-start">
+                    {/* Tier 1: The Foundation (Strategy & Audit) */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className={`
+                            p-6 flex flex-col relative h-full
+                            ${theme === 'minimalist' ? 'bg-background border border-theme' : ''}
+                            ${theme === 'neubrutalist' ? 'bg-white border-[3px] border-black shadow-[4px_4px_0px_#000]' : ''}
+                            ${theme === 'discord' ? 'bg-[#36393f] rounded-lg' : ''}
+                        `}
+                    >
+                        <div className="mb-6">
+                            <p className="text-xs font-bold uppercase tracking-wider opacity-60 mb-1">Start With A Plan</p>
+                            <h3 className="text-xl font-bold font-theme mb-2">The Foundation</h3>
+                            <div className="text-3xl font-bold font-theme mb-4 text-accent">$250 - $500</div>
+                            <p className={`text-sm ${theme === 'discord' ? 'text-gray-400' : 'opacity-70'}`}>
+                                Perfect for businesses that need direction before spending big. We map out exactly what you need.
+                            </p>
+                        </div>
+                        <ul className="space-y-3 flex-grow mb-8">
+                            {[
+                                "Digital Audit (Review presence)",
+                                "Technical Roadmap",
+                                "Visual Wireframes (Blueprints)",
+                                "Competitor Analysis",
+                                "Clear Next Steps"
+                            ].map((feature, i) => (
+                                <li key={i} className="flex items-center gap-2 text-sm">
+                                    <span className="text-green-500">✓</span> {feature}
+                                </li>
+                            ))}
+                        </ul>
+                        <Link href="/contact" className="w-full mt-auto">
+                            <button className={`
+                                w-full py-3 font-bold transition-all
+                                ${theme === 'minimalist' ? 'border border-foreground hover:bg-foreground hover:text-background' : ''}
+                                ${theme === 'neubrutalist' ? 'bg-white border-2 border-black hover:bg-gray-100' : ''}
+                                ${theme === 'discord' ? 'bg-[#5865F2] text-white hover:bg-[#4752c4] rounded-md' : ''}
+                            `}>
+                                Start Strategy
+                            </button>
+                        </Link>
+                    </motion.div>
+
+                    {/* Tier 2: The Build (Development) */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className={`
+                            p-8 flex flex-col relative transform lg:-translate-y-4 z-10
+                            ${theme === 'minimalist' ? 'bg-background border-2 border-foreground' : ''}
+                            ${theme === 'neubrutalist' ? 'bg-[#FFE66D] border-[3px] border-black shadow-[6px_6px_0px_#000]' : ''}
+                            ${theme === 'discord' ? 'bg-accent/10 border-2 border-accent rounded-lg shadow-lg' : ''}
+                        `}
+                    >
+                        <div className={`
+                            absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 text-xs font-bold uppercase whitespace-nowrap
+                            ${theme === 'minimalist' ? 'bg-foreground text-background' : ''}
+                            ${theme === 'neubrutalist' ? 'bg-black text-white' : ''}
+                            ${theme === 'discord' ? 'bg-accent text-white rounded-full' : ''}
+                        `}>
+                            Most Popular
+                        </div>
+
+                        <div className="mb-6">
+                            <p className="text-xs font-bold uppercase tracking-wider opacity-60 mb-1">Your Professional Site</p>
+                            <h3 className="text-2xl font-bold font-theme mb-2">The Build</h3>
+                            <div className="text-3xl font-bold font-theme mb-4 text-accent">Starting at $1,800</div>
+                            <p className={`text-sm ${theme === 'discord' ? 'text-gray-400' : 'opacity-70'}`}>
+                                A stunning, fast website that establishes your brand. No templates, no bloat, just results.
+                            </p>
+                        </div>
+                        <ul className="space-y-3 flex-grow mb-8">
+                            {[
+                                "Custom Static Sites (Fast & Secure)",
+                                "Mobile-First Design",
+                                "SEO Ready (Built for Google)",
+                                "Web Applications [Custom Quote]",
+                                "Secure & Accessibility Focused",
+                                "Easy Content Management"
+                            ].map((feature, i) => (
+                                <li key={i} className="flex items-center gap-2 text-sm">
+                                    <span className="text-green-500">✓</span> {feature}
+                                </li>
+                            ))}
+                        </ul>
+                        <Link href="/contact" className="w-full mt-auto">
+                            <button className={`
+                                w-full py-3 font-bold transition-all
+                                ${theme === 'minimalist' ? 'bg-foreground text-background hover:opacity-90' : ''}
+                                ${theme === 'neubrutalist' ? 'bg-black text-white hover:opacity-80' : ''}
+                                ${theme === 'discord' ? 'bg-accent text-white hover:opacity-90 rounded-md' : ''}
+                            `}>
+                                Build My Site
+                            </button>
+                        </Link>
+                    </motion.div>
+
+                    {/* Tier 3: The Care Plan (Maintenance) */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className={`
+                            p-6 flex flex-col relative h-full
+                            ${theme === 'minimalist' ? 'bg-background border border-theme' : ''}
+                            ${theme === 'neubrutalist' ? 'bg-white border-[3px] border-black shadow-[4px_4px_0px_#000]' : ''}
+                            ${theme === 'discord' ? 'bg-[#36393f] rounded-lg' : ''}
+                        `}
+                    >
+                        <div className="mb-6">
+                            <p className="text-xs font-bold uppercase tracking-wider opacity-60 mb-1">We Keep The Lights On</p>
+                            <h3 className="text-xl font-bold font-theme mb-2">The Care Plan</h3>
+                            <div className="text-3xl font-bold font-theme mb-4 text-accent">Starting at $150<span className="text-base text-gray-500 font-normal">/mo</span></div>
+                            <p className={`text-sm ${theme === 'discord' ? 'text-gray-400' : 'opacity-70'}`}>
+                                Focus on your business, not updates. We handle the technical side so you never have to worry.
+                            </p>
+                        </div>
+                        <ul className="space-y-3 flex-grow mb-8">
+                            {[
+                                "Managed Hosting (Domains & Servers)",
+                                "Unlimited Content Updates",
+                                "Daily Security & Backups",
+                                "Monthly Health Report",
+                                "Priority Support"
+                            ].map((feature, i) => (
+                                <li key={i} className="flex items-center gap-2 text-sm">
+                                    <span className="text-green-500">✓</span> {feature}
+                                </li>
+                            ))}
+                        </ul>
+                        <Link href="/contact" className="w-full mt-auto">
+                            <button className={`
+                                w-full py-3 font-bold transition-all
+                                ${theme === 'minimalist' ? 'border border-foreground hover:bg-foreground hover:text-background' : ''}
+                                ${theme === 'neubrutalist' ? 'bg-white border-2 border-black hover:bg-gray-100' : ''}
+                                ${theme === 'discord' ? 'bg-[#5865F2] text-white hover:bg-[#4752c4] rounded-md' : ''}
+                            `}>
+                                Get Care Plan
+                            </button>
+                        </Link>
+                    </motion.div>
+                </div>
+
+                <div className="mt-8 text-center">
+                    <p className="text-xs opacity-50 italic">
+                        * Prices are estimated starting points based on typical project scope. Final quotes provided after The Blueprint phase.
+                    </p>
+                </div>
+            </section>
+
             {/* CTA Section */}
             <section className={`
                 px-6 py-16 md:px-12 md:py-24 lg:px-24 text-center

@@ -50,34 +50,52 @@ const MANAGEMENT_SERVICES = [
 
 const SERVICE_TIERS = [
     {
-        tier: "Bot Development",
-        tagline: "One-time build",
-        description: "Custom Discord bot tailored to your specific needs, with full documentation and training.",
+        tier: "The Foundation",
+        tagline: "Professional Architecture",
+        description: "A professional, secure environment designed for growth. We build the stage; you bring the audience.",
+        price: "$350",
+        priceDetail: "One-time setup",
         features: [
-            "Custom bot development",
-            "Feature specification & planning",
-            "Full deployment & setup",
-            "Documentation & training",
-            "30 days post-launch support",
+            "Anti-raid & Automod Logic",
+            "Clear Permissions Hierarchy",
+            "Optimized User Journey Flow",
+            "Custom Onboarding Screens",
+            "Server Rules & Safety Setup"
         ],
-        cta: "Build My Bot",
+        cta: "Build Foundation",
         popular: false,
     },
     {
-        tier: "Full-Service Management",
-        tagline: "Monthly retainer",
-        description: "I become your community's dedicated manager, handling everything from events to moderation to growth.",
+        tier: "The Automaton",
+        tagline: "Bespoke Bot Dev",
+        description: "Custom software that gives your community a unique superpower. Your brand, your utility, your code.",
+        price: "$950",
+        priceDetail: "Starting at",
         features: [
-            "Everything in Bot Development",
-            "Ongoing community management",
-            "Event planning & execution",
-            "Member engagement programs",
-            "Monthly health reports & insights",
-            "Communication via Discord or your preferred platform",
-            "Defined response times (agreed in contract)",
+            "Branded Bot Identity (Name/Avatar)",
+            "Custom Engagement Systems (XP)",
+            "Utility Modules (Tickets/Forms)",
+            "Secure Database Persistence",
+            "API Integrations (Web3/Socials)"
         ],
-        cta: "Let's Talk",
+        cta: "Develope Automaton",
         popular: true,
+    },
+    {
+        tier: "The Operator",
+        tagline: "Fractional Management",
+        description: "I act as your Director of Community. I handle the strategy, the staff, and the tech so you can lead.",
+        price: "$1,250",
+        priceDetail: "/ month",
+        features: [
+            "Full Strategy & Event Planning",
+            "Staff Oversight & Training",
+            "24/7 Bot Hosting & Recovery",
+            "Sentiment Intelligence Reports",
+            "Priority Crisis Response"
+        ],
+        cta: "Hire Operator",
+        popular: false,
     },
 ];
 
@@ -171,7 +189,7 @@ export default function CommunitySolutions() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto items-start">
                     {SERVICE_TIERS.map((service, i) => (
                         <motion.div
                             key={service.tier}
@@ -200,6 +218,9 @@ export default function CommunitySolutions() {
                             <div className="mb-6">
                                 <p className="text-xs font-bold uppercase tracking-wider opacity-60 mb-1">{service.tagline}</p>
                                 <h3 className="text-2xl font-bold font-theme mb-2">{service.tier}</h3>
+                                <div className="text-3xl font-bold font-theme mb-4 text-accent">
+                                    {service.price} <span className="text-base font-normal opacity-60 text-foreground">{service.priceDetail}</span>
+                                </div>
                                 <p className={`text-sm ${theme === 'discord' ? 'text-gray-400' : 'opacity-70'}`}>
                                     {service.description}
                                 </p>
@@ -226,6 +247,12 @@ export default function CommunitySolutions() {
                             </Link>
                         </motion.div>
                     ))}
+                </div>
+
+                <div className="mt-8 text-center">
+                    <p className="text-xs opacity-50 italic">
+                        * Prices are estimated starting points based on typical project scope. Final quotes provided after The Blueprint phase.
+                    </p>
                 </div>
             </section>
 
@@ -367,7 +394,7 @@ export default function CommunitySolutions() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="flex flex-col gap-4"
+                        className="flex flex-col gap-4 h-full"
                     >
                         <h3 className="text-lg font-bold font-theme flex items-center gap-2">
                             <ShieldAlert className="w-5 h-5 text-accent" />
@@ -377,7 +404,7 @@ export default function CommunitySolutions() {
 
                         {/* Moderation Stats */}
                         <div className={`
-                            p-4 space-y-3
+                            p-4 space-y-3 flex-grow flex flex-col justify-center
                             ${theme === 'minimalist' ? 'border border-theme' : ''}
                             ${theme === 'neubrutalist' ? 'bg-white border-[3px] border-black shadow-[4px_4px_0px_#000]' : ''}
                             ${theme === 'discord' ? 'bg-[#36393f] rounded-lg' : ''}
