@@ -55,7 +55,20 @@
   --radius: 8px;
   --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
   --font-main: var(--font-inter);
-  --nav-height: 64px;
+  --nav-height: 48px;
+}
+
+/* Discord Layout Layout Fixes */
+[data-theme='discord'] body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Force root layout div to fit screen and not scroll */
+[data-theme='discord'] body>div {
+  height: 100vh;
+  min-height: 0;
+  overflow: hidden;
 }
 
 body {

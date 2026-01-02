@@ -8,7 +8,7 @@ import { ChevronDown } from "lucide-react";
 const FAQS = [
     {
         question: "What if I don't like the final result?",
-        answer: "We work in weekly sprints with regular demos, so you see progress throughout. If something's not right, we catch it early. Plus, every project includes revision cycles built into the price, no surprise fees.",
+        answer: "I work in weekly sprints with regular demos, so you see progress throughout. If something's not right, we catch it early. Plus, every project includes revision cycles built into the price, no surprise fees.",
     },
     {
         question: "How do you handle communication?",

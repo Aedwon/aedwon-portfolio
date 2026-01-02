@@ -33,7 +33,7 @@ const STEPS = [
         icon: TrendingUp,
         step: "05",
         title: "The Growth Engine",
-        description: "Ongoing management and optimization. I use data from our tools to evolve your strategy as you scale.",
+        description: "Ongoing management and optimization. I use data from my tools to evolve your strategy as you scale.",
     },
 ];
 

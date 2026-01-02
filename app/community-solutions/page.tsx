@@ -52,7 +52,7 @@ const SERVICE_TIERS = [
     {
         tier: "The Foundation",
         tagline: "Professional Architecture",
-        description: "A professional, secure environment designed for growth. We build the stage; you bring the audience.",
+        description: "A professional, secure environment designed for growth. I build the stage; you bring the audience.",
         price: "$350",
         priceDetail: "One-time setup",
         features: [
@@ -78,7 +78,7 @@ const SERVICE_TIERS = [
             "Secure Database Persistence",
             "API Integrations (Web3/Socials)"
         ],
-        cta: "Develope Automaton",
+        cta: "Develop Automaton",
         popular: true,
     },
     {
@@ -149,198 +149,6 @@ export default function CommunitySolutions() {
                             </Link>
                         </div>
                     </motion.div>
-                </div>
-            </section>
-
-            {/* Value Props Strip */}
-            <section className={`
-                px-6 py-8 md:px-12 lg:px-24 border-y border-theme
-                ${theme === 'discord' ? 'bg-[#2f3136]' : 'bg-accent-secondary/20'}
-            `}>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-                    {VALUE_PROPS.map((prop, i) => (
-                        <motion.div
-                            key={prop.title}
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: i * 0.1 }}
-                            className="flex items-center gap-3"
-                        >
-                            <div className={`p-2 rounded-lg ${theme === 'discord' ? 'bg-accent/20' : 'bg-accent/10'}`}>
-                                <prop.icon className={`w-5 h-5 ${theme === 'discord' ? 'text-accent' : 'text-accent'}`} />
-                            </div>
-                            <div>
-                                <div className="font-bold font-theme text-sm">{prop.title}</div>
-                                <div className="text-xs opacity-60">{prop.description}</div>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-            </section>
-
-            {/* Service Tiers */}
-            <section className="px-6 py-16 md:px-12 md:py-24 lg:px-24">
-                <div className="mb-12 text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold font-theme tracking-tight mb-4">
-                        Choose Your Level of Support
-                    </h2>
-                    <p className="text-lg opacity-70 max-w-2xl mx-auto">
-                        Whether you need a custom bot or a dedicated community manager, I&apos;ve got you covered.
-                    </p>
-                </div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto items-start">
-                    {SERVICE_TIERS.map((service, i) => (
-                        <motion.div
-                            key={service.tier}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1 }}
-                            className={`
-                                relative p-8 flex flex-col
-                                ${theme === 'minimalist' ? `bg-background border ${service.popular ? 'border-foreground border-2' : 'border-theme'}` : ''}
-                                ${theme === 'neubrutalist' ? `bg-white border-[3px] border-black shadow-[4px_4px_0px_#000] ${service.popular ? 'bg-[#FFE66D]' : ''}` : ''}
-                                ${theme === 'discord' ? `rounded-lg ${service.popular ? 'bg-accent/10 border-2 border-accent' : 'bg-[#2f3136]'}` : ''}
-                            `}
-                        >
-                            {service.popular && (
-                                <div className={`
-                                    absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 text-xs font-bold uppercase
-                                    ${theme === 'minimalist' ? 'bg-foreground text-background' : ''}
-                                    ${theme === 'neubrutalist' ? 'bg-black text-white' : ''}
-                                    ${theme === 'discord' ? 'bg-accent text-white rounded-full' : ''}
-                                `}>
-                                    <Star className="w-3 h-3 inline mr-1" /> Most Popular
-                                </div>
-                            )}
-
-                            <div className="mb-6">
-                                <p className="text-xs font-bold uppercase tracking-wider opacity-60 mb-1">{service.tagline}</p>
-                                <h3 className="text-2xl font-bold font-theme mb-2">{service.tier}</h3>
-                                <div className="text-3xl font-bold font-theme mb-4 text-accent">
-                                    {service.price} <span className="text-base font-normal opacity-60 text-foreground">{service.priceDetail}</span>
-                                </div>
-                                <p className={`text-sm ${theme === 'discord' ? 'text-gray-400' : 'opacity-70'}`}>
-                                    {service.description}
-                                </p>
-                            </div>
-
-                            <ul className="space-y-3 flex-grow mb-8">
-                                {service.features.map((feature, j) => (
-                                    <li key={j} className="flex items-start gap-2 text-sm">
-                                        <CheckCircle className={`w-4 h-4 mt-0.5 shrink-0 ${theme === 'discord' ? 'text-[#57F287]' : 'text-green-600'}`} />
-                                        <span className="opacity-80">{feature}</span>
-                                    </li>
-                                ))}
-                            </ul>
-
-                            <Link href="/contact">
-                                <button className={`
-                                    w-full flex items-center justify-center gap-2 px-6 py-3 text-sm font-bold transition-all
-                                    ${theme === 'minimalist' ? `${service.popular ? 'bg-foreground text-background' : 'border border-foreground hover:bg-foreground hover:text-background'}` : ''}
-                                    ${theme === 'neubrutalist' ? 'bg-black text-white hover:opacity-80' : ''}
-                                    ${theme === 'discord' ? `${service.popular ? 'bg-accent text-white' : 'bg-[#36393f] text-white hover:bg-[#40444b]'} rounded-lg` : ''}
-                                `}>
-                                    {service.cta} <ArrowRight className="w-4 h-4" />
-                                </button>
-                            </Link>
-                        </motion.div>
-                    ))}
-                </div>
-
-                <div className="mt-8 text-center">
-                    <p className="text-xs opacity-50 italic">
-                        * Prices are estimated starting points based on typical project scope. Final quotes provided after The Blueprint phase.
-                    </p>
-                </div>
-            </section>
-
-            {/* Bot Capabilities Grid */}
-            <section className={`
-                px-6 py-16 md:px-12 md:py-24 lg:px-24
-                ${theme === 'discord' ? 'bg-[#2f3136]' : 'bg-accent-secondary/10'}
-            `}>
-                <div className="mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold font-theme tracking-tight mb-4">
-                        Bot Development Capabilities
-                    </h2>
-                    <p className="text-lg opacity-70 max-w-2xl">
-                        Custom-built bots that do exactly what you need. No bloated features, no learning curve.
-                    </p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {BOT_CAPABILITIES.map((cap, i) => (
-                        <motion.div
-                            key={cap.title}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1 }}
-                            className={`
-                                p-6 flex gap-4
-                                ${theme === 'minimalist' ? 'bg-background border border-theme' : ''}
-                                ${theme === 'neubrutalist' ? 'bg-white border-[3px] border-black shadow-[4px_4px_0px_#000]' : ''}
-                                ${theme === 'discord' ? 'bg-[#36393f] rounded-lg border-l-4 border-l-accent' : ''}
-                            `}
-                        >
-                            <div className={`p-3 rounded-lg shrink-0 h-fit ${theme === 'discord' ? 'bg-accent/20' : 'bg-accent/10'}`}>
-                                <cap.icon className={`w-6 h-6 ${theme === 'discord' ? 'text-accent' : 'text-accent'}`} />
-                            </div>
-                            <div>
-                                <h3 className="text-lg font-bold font-theme mb-2">{cap.title}</h3>
-                                <p className={`text-sm ${theme === 'discord' ? 'text-gray-400' : 'opacity-70'}`}>
-                                    {cap.description}
-                                </p>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-            </section>
-
-            {/* Community Management Services */}
-            <section className="px-6 py-16 md:px-12 md:py-24 lg:px-24">
-                <div className="max-w-4xl mx-auto">
-                    <div className="mb-12">
-                        <div className="flex items-center gap-2 mb-4">
-                            <Headphones className="w-6 h-6 text-accent" />
-                            <p className={`text-sm font-bold uppercase tracking-widest ${theme === 'discord' ? 'text-accent' : 'opacity-60'}`}>
-                                Full-Service Management
-                            </p>
-                        </div>
-                        <h2 className="text-3xl md:text-4xl font-bold font-theme tracking-tight mb-4">
-                            More Than Just Bots.<br />
-                            <span className="text-accent">A Dedicated Community Partner</span>
-                        </h2>
-                        <p className="text-lg opacity-70 max-w-2xl">
-                            Need someone to actually run your community? I handle everything: from daily moderation
-                            to monthly events to growth strategy, so you can focus on your content and business.
-                        </p>
-                    </div>
-
-                    <div className={`
-                        p-8 grid grid-cols-1 md:grid-cols-2 gap-4
-                        ${theme === 'minimalist' ? 'border border-theme' : ''}
-                        ${theme === 'neubrutalist' ? 'bg-[#B8F2E6] border-[3px] border-black shadow-[4px_4px_0px_#000]' : ''}
-                        ${theme === 'discord' ? 'bg-[#2f3136] rounded-lg' : ''}
-                    `}>
-                        {MANAGEMENT_SERVICES.map((service, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, x: -10 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.05 }}
-                                className="flex items-start gap-3"
-                            >
-                                <Calendar className={`w-4 h-4 mt-1 shrink-0 ${theme === 'discord' ? 'text-accent' : 'text-accent'}`} />
-                                <span className={`text-sm ${theme === 'neubrutalist' ? 'text-black' : theme === 'discord' ? 'text-gray-300' : 'opacity-80'}`}>
-                                    {service}
-                                </span>
-                            </motion.div>
-                        ))}
-                    </div>
                 </div>
             </section>
 
@@ -532,6 +340,200 @@ export default function CommunitySolutions() {
                             ))}
                         </div>
                     </motion.div>
+                </div>
+            </section>
+
+            {/* Value Props Strip */}
+            <section className={`
+                px-6 py-8 md:px-12 lg:px-24 border-y border-theme
+                ${theme === 'discord' ? 'bg-[#2f3136]' : 'bg-accent-secondary/20'}
+            `}>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                    {VALUE_PROPS.map((prop, i) => (
+                        <motion.div
+                            key={prop.title}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.1 }}
+                            className="flex items-center gap-3"
+                        >
+                            <div className={`p-2 rounded-lg ${theme === 'discord' ? 'bg-accent/20' : 'bg-accent/10'}`}>
+                                <prop.icon className={`w-5 h-5 ${theme === 'discord' ? 'text-accent' : 'text-accent'}`} />
+                            </div>
+                            <div>
+                                <div className="font-bold font-theme text-sm">{prop.title}</div>
+                                <div className="text-xs opacity-60">{prop.description}</div>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </section>
+
+
+
+            {/* Bot Capabilities Grid */}
+            <section className={`
+                px-6 py-16 md:px-12 md:py-24 lg:px-24
+                ${theme === 'discord' ? 'bg-[#2f3136]' : 'bg-accent-secondary/10'}
+            `}>
+                <div className="mb-12">
+                    <h2 className="text-3xl md:text-4xl font-bold font-theme tracking-tight mb-4">
+                        Bot Development Capabilities
+                    </h2>
+                    <p className="text-lg opacity-70 max-w-2xl">
+                        Custom-built bots that do exactly what you need. No bloated features, no learning curve.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {BOT_CAPABILITIES.map((cap, i) => (
+                        <motion.div
+                            key={cap.title}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1 }}
+                            className={`
+                                p-6 flex gap-4
+                                ${theme === 'minimalist' ? 'bg-background border border-theme' : ''}
+                                ${theme === 'neubrutalist' ? 'bg-white border-[3px] border-black shadow-[4px_4px_0px_#000]' : ''}
+                                ${theme === 'discord' ? 'bg-[#36393f] rounded-lg border-l-4 border-l-accent' : ''}
+                            `}
+                        >
+                            <div className={`p-3 rounded-lg shrink-0 h-fit ${theme === 'discord' ? 'bg-accent/20' : 'bg-accent/10'}`}>
+                                <cap.icon className={`w-6 h-6 ${theme === 'discord' ? 'text-accent' : 'text-accent'}`} />
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-bold font-theme mb-2">{cap.title}</h3>
+                                <p className={`text-sm ${theme === 'discord' ? 'text-gray-400' : 'opacity-70'}`}>
+                                    {cap.description}
+                                </p>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </section>
+
+            {/* Community Management Services */}
+            <section className="px-6 py-16 md:px-12 md:py-24 lg:px-24">
+                <div className="max-w-4xl mx-auto">
+                    <div className="mb-12">
+                        <div className="flex items-center gap-2 mb-4">
+                            <Headphones className="w-6 h-6 text-accent" />
+                            <p className={`text-sm font-bold uppercase tracking-widest ${theme === 'discord' ? 'text-accent' : 'opacity-60'}`}>
+                                Full-Service Management
+                            </p>
+                        </div>
+                        <h2 className="text-3xl md:text-4xl font-bold font-theme tracking-tight mb-4">
+                            More Than Just Bots.<br />
+                            <span className="text-accent">A Dedicated Community Partner</span>
+                        </h2>
+                        <p className="text-lg opacity-70 max-w-2xl">
+                            Need someone to actually run your community? I handle everything: from daily moderation
+                            to monthly events to growth strategy, so you can focus on your content and business.
+                        </p>
+                    </div>
+
+                    <div className={`
+                        p-8 grid grid-cols-1 md:grid-cols-2 gap-4
+                        ${theme === 'minimalist' ? 'border border-theme' : ''}
+                        ${theme === 'neubrutalist' ? 'bg-[#B8F2E6] border-[3px] border-black shadow-[4px_4px_0px_#000]' : ''}
+                        ${theme === 'discord' ? 'bg-[#2f3136] rounded-lg' : ''}
+                    `}>
+                        {MANAGEMENT_SERVICES.map((service, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, x: -10 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.05 }}
+                                className="flex items-start gap-3"
+                            >
+                                <Calendar className={`w-4 h-4 mt-1 shrink-0 ${theme === 'discord' ? 'text-accent' : 'text-accent'}`} />
+                                <span className={`text-sm ${theme === 'neubrutalist' ? 'text-black' : theme === 'discord' ? 'text-gray-300' : 'opacity-80'}`}>
+                                    {service}
+                                </span>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Service Tiers */}
+            <section className="px-6 py-16 md:px-12 md:py-24 lg:px-24">
+                <div className="mb-12 text-center">
+                    <h2 className="text-3xl md:text-4xl font-bold font-theme tracking-tight mb-4">
+                        Choose Your Level of Support
+                    </h2>
+                    <p className="text-lg opacity-70 max-w-2xl mx-auto">
+                        Whether you need a custom bot or a dedicated community manager, I&apos;ve got you covered.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto items-start">
+                    {SERVICE_TIERS.map((service, i) => (
+                        <motion.div
+                            key={service.tier}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1 }}
+                            className={`
+                                relative p-8 flex flex-col
+                                ${theme === 'minimalist' ? `bg-background border ${service.popular ? 'border-foreground border-2' : 'border-theme'}` : ''}
+                                ${theme === 'neubrutalist' ? `bg-white border-[3px] border-black shadow-[4px_4px_0px_#000] ${service.popular ? 'bg-[#FFE66D]' : ''}` : ''}
+                                ${theme === 'discord' ? `rounded-lg ${service.popular ? 'bg-accent/10 border-2 border-accent' : 'bg-[#2f3136]'}` : ''}
+                            `}
+                        >
+                            {service.popular && (
+                                <div className={`
+                                    absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 text-xs font-bold uppercase
+                                    ${theme === 'minimalist' ? 'bg-foreground text-background' : ''}
+                                    ${theme === 'neubrutalist' ? 'bg-black text-white' : ''}
+                                    ${theme === 'discord' ? 'bg-accent text-white rounded-full' : ''}
+                                `}>
+                                    <Star className="w-3 h-3 inline mr-1" /> Most Popular
+                                </div>
+                            )}
+
+                            <div className="mb-6">
+                                <p className="text-xs font-bold uppercase tracking-wider opacity-60 mb-1">{service.tagline}</p>
+                                <h3 className="text-2xl font-bold font-theme mb-2">{service.tier}</h3>
+                                <div className="text-3xl font-bold font-theme mb-4 text-accent">
+                                    {service.price} <span className="text-base font-normal opacity-60 text-foreground">{service.priceDetail}</span>
+                                </div>
+                                <p className={`text-sm ${theme === 'discord' ? 'text-gray-400' : 'opacity-70'}`}>
+                                    {service.description}
+                                </p>
+                            </div>
+
+                            <ul className="space-y-3 flex-grow mb-8">
+                                {service.features.map((feature, j) => (
+                                    <li key={j} className="flex items-start gap-2 text-sm">
+                                        <CheckCircle className={`w-4 h-4 mt-0.5 shrink-0 ${theme === 'discord' ? 'text-[#57F287]' : 'text-green-600'}`} />
+                                        <span className="opacity-80">{feature}</span>
+                                    </li>
+                                ))}
+                            </ul>
+
+                            <Link href="/contact">
+                                <button className={`
+                                    w-full flex items-center justify-center gap-2 px-6 py-3 text-sm font-bold transition-all
+                                    ${theme === 'minimalist' ? `${service.popular ? 'bg-foreground text-background' : 'border border-foreground hover:bg-foreground hover:text-background'}` : ''}
+                                    ${theme === 'neubrutalist' ? 'bg-black text-white hover:opacity-80' : ''}
+                                    ${theme === 'discord' ? `${service.popular ? 'bg-accent text-white' : 'bg-[#36393f] text-white hover:bg-[#40444b]'} rounded-lg` : ''}
+                                `}>
+                                    {service.cta} <ArrowRight className="w-4 h-4" />
+                                </button>
+                            </Link>
+                        </motion.div>
+                    ))}
+                </div>
+
+                <div className="mt-8 text-center">
+                    <p className="text-xs opacity-50 italic">
+                        * Prices are estimated starting points based on typical project scope. Final quotes provided after The Blueprint phase.
+                    </p>
                 </div>
             </section>
 

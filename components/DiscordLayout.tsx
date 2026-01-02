@@ -71,7 +71,7 @@ export default function DiscordLayout({ children }: { children: React.ReactNode 
             </div>
 
             {/* Main layout area - offset by server sidebar */}
-            <div className="flex h-full md:ml-[72px]">
+            <div className="flex fixed top-[48px] left-[72px] right-0 bottom-0 overflow-hidden bg-[#36393f]">
                 {/* Channel Sidebar */}
                 <div className="hidden md:flex w-60 bg-[#2f3136] flex-col shrink-0">
                     {/* Channels - starts below the navbar area */}

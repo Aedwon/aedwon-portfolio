@@ -144,35 +144,6 @@ export default function WebSolutions() {
                 </div>
             </section>
 
-            {/* Value Props */}
-            <section className={`
-                px-6 py-12 md:px-12 lg:px-24 border-y border-theme
-                ${theme === 'discord' ? 'bg-[#2f3136]' : 'bg-accent-secondary/20'}
-            `}>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {VALUE_PROPS.map((prop, i) => (
-                        <motion.div
-                            key={prop.title}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: i * 0.1 }}
-                            className="flex items-start gap-4"
-                        >
-                            <div className={`
-                                p-3 rounded-lg shrink-0
-                                ${theme === 'discord' ? 'bg-accent/20' : 'bg-accent/10'}
-                            `}>
-                                <prop.icon className={`w-5 h-5 ${theme === 'discord' ? 'text-accent' : 'text-accent'}`} />
-                            </div>
-                            <div>
-                                <h3 className="font-bold font-theme mb-1">{prop.title}</h3>
-                                <p className="text-sm opacity-70">{prop.description}</p>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-            </section>
-
             {/* Projects Section */}
             <section className="px-6 py-16 md:px-12 md:py-24 lg:px-24">
                 <div className="mb-12">
@@ -224,6 +195,35 @@ export default function WebSolutions() {
                 </motion.div>
             </section>
 
+            {/* Value Props */}
+            <section className={`
+                px-6 py-12 md:px-12 lg:px-24 border-y border-theme
+                ${theme === 'discord' ? 'bg-[#2f3136]' : 'bg-accent-secondary/20'}
+            `}>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {VALUE_PROPS.map((prop, i) => (
+                        <motion.div
+                            key={prop.title}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.1 }}
+                            className="flex items-start gap-4"
+                        >
+                            <div className={`
+                                p-3 rounded-lg shrink-0
+                                ${theme === 'discord' ? 'bg-accent/20' : 'bg-accent/10'}
+                            `}>
+                                <prop.icon className={`w-5 h-5 ${theme === 'discord' ? 'text-accent' : 'text-accent'}`} />
+                            </div>
+                            <div>
+                                <h3 className="font-bold font-theme mb-1">{prop.title}</h3>
+                                <p className="text-sm opacity-70">{prop.description}</p>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </section>
+
 
 
             {/* Investment Section */}
@@ -258,7 +258,7 @@ export default function WebSolutions() {
                             <h3 className="text-xl font-bold font-theme mb-2">The Foundation</h3>
                             <div className="text-3xl font-bold font-theme mb-4 text-accent">$250 - $500</div>
                             <p className={`text-sm ${theme === 'discord' ? 'text-gray-400' : 'opacity-70'}`}>
-                                Perfect for businesses that need direction before spending big. We map out exactly what you need.
+                                Perfect for businesses that need direction before spending big. I map out exactly what you need.
                             </p>
                         </div>
                         <ul className="space-y-3 flex-grow mb-8">
@@ -356,11 +356,11 @@ export default function WebSolutions() {
                         `}
                     >
                         <div className="mb-6">
-                            <p className="text-xs font-bold uppercase tracking-wider opacity-60 mb-1">We Keep The Lights On</p>
+                            <p className="text-xs font-bold uppercase tracking-wider opacity-60 mb-1">I Keep The Lights On</p>
                             <h3 className="text-xl font-bold font-theme mb-2">The Care Plan</h3>
                             <div className="text-3xl font-bold font-theme mb-4 text-accent">Starting at $150<span className="text-base text-gray-500 font-normal">/mo</span></div>
                             <p className={`text-sm ${theme === 'discord' ? 'text-gray-400' : 'opacity-70'}`}>
-                                Focus on your business, not updates. We handle the technical side so you never have to worry.
+                                Focus on your business, not updates. I handle the technical side so you never have to worry.
                             </p>
                         </div>
                         <ul className="space-y-3 flex-grow mb-8">
