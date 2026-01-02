@@ -35,7 +35,7 @@ export default function CTASection() {
                         ${theme === 'neubrutalist' ? 'text-white/90' : ''}
                         ${theme === 'discord' ? 'text-white/90' : ''}
                     `}>
-                        Let&apos;s hop on a quick 15-minute call. No pitch, no pressure—just honest advice on whether I can help.
+                        Let&apos;s hop on a quick 15-minute call. No pitch, no pressure - just honest advice on whether I can help.
                     </p>
 
                     {/* CTA Buttons */}

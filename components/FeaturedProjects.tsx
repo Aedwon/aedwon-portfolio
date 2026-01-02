@@ -22,7 +22,7 @@ const PROJECTS = [
         problem: "Mods overwhelmed, engagement dropping",
         solution: "24/7 autonomous moderation + gamification",
         result: "20hrs/week saved, 3x engagement",
-        href: "/community-systems",
+        href: "/community-solutions",
     },
     {
         icon: Gauge,

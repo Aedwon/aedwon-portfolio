@@ -9,7 +9,7 @@ const STEPS = [
         icon: MessageSquare,
         step: "01",
         title: "Discovery Call",
-        description: "We hop on a quick call to understand your goals, timeline, and budget. No pitch—just honest advice.",
+        description: "We hop on a quick call to understand your goals, timeline, and budget. No pitch, just honest advice.",
     },
     {
         icon: FileText,

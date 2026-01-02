@@ -31,7 +31,9 @@ export default function HeroSection() {
                         Hey, I&apos;m Aedwon
                     </h2>
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-theme tracking-tight mb-6 max-w-4xl">
-                        I turn ideas into <span className="text-accent underline decoration-4 underline-offset-4">revenue-generating</span> digital products.
+                        I turn ideas into<br />
+                        <span className="text-accent underline decoration-4 underline-offset-4">revenue-generating</span><br />
+                        digital products.
                     </h1>
                     <p className="text-lg md:text-xl opacity-70 max-w-2xl mx-auto mb-8">
                         Trusted by startups and creators to ship fast, scalable web apps and automated community systems that grow businesses on autopilot.
@@ -136,7 +138,7 @@ export default function HeroSection() {
                             <span className="flex items-center gap-2"><Sparkles className="w-4 h-4" /> Gamification & Loyalty Systems</span>
                         </div>
 
-                        <Link href="/community-systems">
+                        <Link href="/community-solutions">
                             <button className={`
                                 flex items-center gap-2 px-8 py-4 text-base font-bold transition-all mt-4
                                 ${theme === 'minimalist' ? 'border border-theme hover:bg-accent-secondary rounded-none' : ''}

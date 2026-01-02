@@ -195,7 +195,7 @@ export default function DiscordHeroSection() {
                         ]}
                     />
                     <div className="flex gap-2 mt-3">
-                        <DiscordButton href="/community-systems">
+                        <DiscordButton href="/community-solutions">
                             See It In Action <ArrowRight className="w-4 h-4" />
                         </DiscordButton>
                     </div>

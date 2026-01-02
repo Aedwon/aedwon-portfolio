@@ -13,7 +13,7 @@ const PROJECTS = [
     {
         id: 1,
         title: "EcoStyle Fashion",
-        description: "Sustainable fashion brand losing sales to a slow, clunky Shopify theme. I rebuilt their entire storefront with a custom Next.js frontend—lightning fast, story-driven, and optimized for mobile checkout.",
+        description: "Sustainable fashion brand losing sales to a slow, clunky Shopify theme. I rebuilt their entire storefront with a custom Next.js frontend: lightning fast, story-driven, and optimized for mobile checkout.",
         metric: "+35% Conversion Rate",
         tags: ["Next.js", "Shopify Headless", "Tailwind"],
         image: "/placeholder-1.jpg",
@@ -40,7 +40,7 @@ const PROJECTS = [
     {
         id: 4,
         title: "Urban Sneakers",
-        description: "Hype drop platform that crashed every release. Architected an edge-first solution that handles 100k+ concurrent users during limited drops—zero downtime, zero lost sales.",
+        description: "Hype drop platform that crashed every release. Architected an edge-first solution that handles 100k+ concurrent users during limited drops. Zero downtime, zero lost sales.",
         metric: "100% Uptime on Drops",
         tags: ["Vercel Edge", "Redis", "Next.js"],
         image: "/placeholder-4.jpg",
@@ -57,7 +57,7 @@ const VALUE_PROPS = [
     {
         icon: TrendingUp,
         title: "Built to Convert",
-        description: "I don't just make it pretty—I optimize every pixel for your bottom line.",
+        description: "I don't just make it pretty. I optimize every pixel for your bottom line.",
     },
     {
         icon: Shield,
@@ -97,7 +97,7 @@ export default function WebSolutions() {
                             Websites That <span className={`${theme === 'discord' ? 'text-accent' : 'text-accent'}`}>Actually</span> Grow Your Business
                         </h1>
                         <p className="text-xl md:text-2xl opacity-80 leading-relaxed font-theme max-w-3xl mb-8">
-                            Your website shouldn&apos;t just exist—it should be your hardest-working salesperson.
+                            Your website shouldn&apos;t just exist. It should be your hardest-working salesperson.
                             I build blazing-fast, conversion-optimized web experiences that turn visitors into customers.
                         </p>
 
@@ -215,7 +215,7 @@ export default function WebSolutions() {
                         text-lg mb-8
                         ${theme === 'minimalist' ? 'opacity-80' : 'text-white/80'}
                     `}>
-                        Let&apos;s chat about your project. 15-minute call, no pitch—just honest advice.
+                        Let&apos;s chat about your project. 15-minute call, no pitch, just honest advice.
                     </p>
                     <Link href="/contact">
                         <button className={`

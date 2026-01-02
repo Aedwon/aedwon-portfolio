@@ -250,8 +250,8 @@ export default function Navbar() {
                     <Link href="/web-solutions" className="hover:text-accent transition-colors">
                         Web Solutions
                     </Link>
-                    <Link href="/community-systems" className="hover:text-accent transition-colors">
-                        Community Systems
+                    <Link href="/community-solutions" className="hover:text-accent transition-colors">
+                        Community Solutions
                     </Link>
                     <Link href="/process" className="hover:text-accent transition-colors">
                         The Process

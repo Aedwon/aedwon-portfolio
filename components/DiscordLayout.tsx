@@ -14,7 +14,7 @@ const CHANNELS = [
     {
         category: 'PORTFOLIO', items: [
             { id: 'web', icon: Hash, href: '/web-solutions', label: 'web-solutions' },
-            { id: 'community', icon: Hash, href: '/community-systems', label: 'community-systems' },
+            { id: 'community', icon: Hash, href: '/community-solutions', label: 'community-solutions' },
         ]
     },
     {

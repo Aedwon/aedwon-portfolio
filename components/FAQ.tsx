@@ -8,11 +8,11 @@ import { ChevronDown } from "lucide-react";
 const FAQS = [
     {
         question: "What if I don't like the final result?",
-        answer: "We work in weekly sprints with regular demos, so you see progress throughout. If something's not right, we catch it early. Plus, every project includes revision cycles built into the price—no surprise fees.",
+        answer: "We work in weekly sprints with regular demos, so you see progress throughout. If something's not right, we catch it early. Plus, every project includes revision cycles built into the price, no surprise fees.",
     },
     {
         question: "How do you handle communication?",
-        answer: "You'll have direct access to me via Slack or Discord. I send weekly progress updates with demos, and we can hop on calls whenever needed. No project managers in between—just you and me.",
+        answer: "You'll have direct access to me via Slack or Discord. I send weekly progress updates with demos, and we can hop on calls whenever needed. No project managers in between - just you and me.",
     },
     {
         question: "What happens after launch?",
@@ -20,7 +20,7 @@ const FAQS = [
     },
     {
         question: "Why should I hire a freelancer instead of an agency?",
-        answer: "With me, you get senior-level work without the agency markup. You work directly with the person building your product—faster decisions, clearer communication, and someone who actually cares about your success.",
+        answer: "With me, you get senior-level work without the agency markup. You work directly with the person building your product - faster decisions, clearer communication, and someone who actually cares about your success.",
     },
     {
         question: "How long does a typical project take?",
