@@ -23,7 +23,7 @@ import Footer from "@/components/Footer";
 import ConsoleEffect from "@/components/ConsoleEffect";
 
 export const metadata: Metadata = {
-  title: "The Living Lab",
+  title: "The Living Lab by Aedwon",
   description: "A chameleon portfolio showcasing Web Solutions and Community Systems.",
 };
 
