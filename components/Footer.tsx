@@ -30,7 +30,7 @@ export default function Footer() {
                         </h3>
                     </div>
                     <p className={`
-                        text-sm opacity-60 flex items-center gap-1
+                        text-sm opacity-80 flex items-center gap-1
                          ${theme === 'discord' ? 'text-xs uppercase font-bold text-accent' : ''}
                     `}>
                         {theme === 'minimalist' && "Designed & Built by Aedwon"}
@@ -54,8 +54,8 @@ export default function Footer() {
 
                 {/* Technical / Credits */}
                 <div className={`
-                    text-xs opacity-50 font-theme text-center md:text-right
-                    ${theme === 'neubrutalist' ? 'opacity-80 font-bold' : ''}
+                    text-xs opacity-70 font-theme text-center md:text-right
+                    ${theme === 'neubrutalist' ? 'opacity-90 font-bold' : ''}
                 `}>
                     <p>&copy; {new Date().getFullYear()} Aedwon. All rights reserved.</p>
                     {theme === 'minimalist' && <p>Made with Next.js & Tailwind</p>}

@@ -71,7 +71,7 @@ export default function DiscordLayout({ children }: { children: React.ReactNode 
             </div>
 
             {/* Main layout area - offset by server sidebar */}
-            <div className="flex h-screen pt-16 md:pt-12 md:ml-[72px]">
+            <div className="flex h-full md:ml-[72px]">
                 {/* Channel Sidebar */}
                 <div className="hidden md:flex w-60 bg-[#2f3136] flex-col shrink-0">
                     {/* Channels - starts below the navbar area */}
@@ -129,13 +129,13 @@ export default function DiscordLayout({ children }: { children: React.ReactNode 
                 {/* Main Content Area */}
                 <div className="flex-1 flex flex-col overflow-hidden bg-[#36393f]">
                     {/* Channel Header */}
-                    <div className="h-12 px-4 flex items-center gap-2 border-b border-[#202225] shadow-sm shrink-0">
-                        <Hash className="w-6 h-6 text-gray-400" />
-                        <span className="font-bold text-white">
+                    <div className="h-12 px-4 flex items-center gap-2 border-b border-[#202225] shadow-sm shrink-0 min-w-0">
+                        <Hash className="w-6 h-6 text-gray-400 shrink-0" />
+                        <span className="font-bold text-white whitespace-nowrap">
                             {pathname === '/' ? 'home' : pathname.slice(1).replace('/', '-')}
                         </span>
-                        <div className="w-px h-6 bg-[#42464d] mx-2" />
-                        <span className="text-sm text-gray-400 truncate">
+                        <div className="w-px h-6 bg-[#42464d] mx-2 shrink-0" />
+                        <span className="text-sm text-gray-400 truncate flex-1 min-w-0">
                             Welcome to my portfolio! Explore my work and get in touch.
                         </span>
                     </div>

@@ -22,11 +22,7 @@ export default function HeroSection() {
                 flex flex-col items-center justify-center pt-24 pb-16 px-6 text-center z-10
                 ${theme === 'neubrutalist' ? 'border-b-[3px] border-black bg-[#FFFDF5]' : 'border-b border-theme bg-background'}
             `}>
-                <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                >
+                <motion.div>
                     <h2 className="text-xl md:text-2xl font-bold mb-4 font-theme opacity-80">
                         Hey, I&apos;m Aedwon
                     </h2>
@@ -94,14 +90,12 @@ export default function HeroSection() {
                             <span className="flex items-center gap-2"><Sparkles className="w-4 h-4" /> Built for SEO & Conversions</span>
                         </div>
 
-                        <Link href="/web-solutions" className="w-full md:w-auto">
-                            <button className={`
+                        <Link href="/web-solutions" className={`
                                 w-full md:w-auto flex items-center justify-center gap-2 px-8 py-4 text-base font-bold transition-all mt-4
                                 ${theme === 'minimalist' ? 'bg-foreground text-background hover:opacity-90 rounded-none' : ''}
                                 ${theme === 'neubrutalist' ? 'bg-accent text-black border-[3px] border-black shadow-[4px_4px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#000] rounded-none' : ''}
                             `}>
-                                See What I&apos;ve Built <ArrowRight className="w-5 h-5" aria-hidden="true" />
-                            </button>
+                            See What I&apos;ve Built <ArrowRight className="w-5 h-5" aria-hidden="true" />
                         </Link>
                     </div>
                 </motion.div>
@@ -138,14 +132,12 @@ export default function HeroSection() {
                             <span className="flex items-center gap-2"><Sparkles className="w-4 h-4" /> Gamification & Loyalty Systems</span>
                         </div>
 
-                        <Link href="/community-solutions" className="w-full md:w-auto">
-                            <button className={`
+                        <Link href="/community-solutions" className={`
                                 w-full md:w-auto flex items-center justify-center gap-2 px-8 py-4 text-base font-bold transition-all mt-4
                                 ${theme === 'minimalist' ? 'border border-theme hover:bg-accent-secondary rounded-none' : ''}
                                 ${theme === 'neubrutalist' ? 'bg-white text-black border-[3px] border-black shadow-[4px_4px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#000] rounded-none' : ''}
                             `}>
-                                See It In Action <ArrowRight className="w-5 h-5" aria-hidden="true" />
-                            </button>
+                            See It In Action <ArrowRight className="w-5 h-5" aria-hidden="true" />
                         </Link>
                     </div>
                 </motion.div>

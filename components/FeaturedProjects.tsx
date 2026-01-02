@@ -89,24 +89,24 @@ export default function FeaturedProjects() {
                             </h3>
 
                             <div className="space-y-2 text-sm flex-grow">
-                                <div className="flex gap-2">
-                                    <span className="font-bold opacity-50 w-16 shrink-0">Problem</span>
+                                <div className="flex gap-3">
+                                    <span className="font-bold opacity-50 w-20 shrink-0">Problem</span>
                                     <span className="opacity-80">{project.problem}</span>
                                 </div>
-                                <div className="flex gap-2">
-                                    <span className="font-bold opacity-50 w-16 shrink-0">Solution</span>
+                                <div className="flex gap-3">
+                                    <span className="font-bold opacity-50 w-20 shrink-0">Solution</span>
                                     <span className="opacity-80">{project.solution}</span>
                                 </div>
                                 <div className={`
-                                    flex gap-2 font-bold
+                                    flex gap-3 font-bold
                                     ${theme === 'discord' ? 'text-green-400' : 'text-green-600'}
                                 `}>
-                                    <span className="opacity-50 w-16 shrink-0">Result</span>
+                                    <span className="opacity-50 w-20 shrink-0">Result</span>
                                     <span>{project.result}</span>
                                 </div>
                             </div>
 
-                            <Link href={project.href} className="mt-2">
+                            <Link href={project.href} className="mt-2" aria-label={`View details for ${project.title}`}>
                                 <span className={`
                                     inline-flex items-center gap-1 text-sm font-bold group-hover:gap-2 transition-all
                                     ${theme === 'discord' ? 'text-accent' : 'text-foreground'}
