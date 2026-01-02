@@ -331,8 +331,38 @@ export default function CommunitySolutions() {
                     </p>
                 </div>
 
+                {/* Key Metrics Row */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    {[
+                        { label: "Active Members", value: "12.5k", change: "+18%", positive: true },
+                        { label: "Messages/Day", value: "3,240", change: "+25%", positive: true },
+                        { label: "Avg. Response", value: "4.2min", change: "-32%", positive: true },
+                        { label: "Churn Rate", value: "2.1%", change: "-15%", positive: true },
+                    ].map((metric, i) => (
+                        <motion.div
+                            key={metric.label}
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.05 }}
+                            className={`
+                                p-4 text-center
+                                ${theme === 'minimalist' ? 'border border-theme' : ''}
+                                ${theme === 'neubrutalist' ? 'bg-white border-[3px] border-black shadow-[4px_4px_0px_#000]' : ''}
+                                ${theme === 'discord' ? 'bg-[#36393f] rounded-lg' : ''}
+                            `}
+                        >
+                            <p className="text-xs uppercase opacity-60 mb-1">{metric.label}</p>
+                            <p className="text-2xl font-bold font-theme">{metric.value}</p>
+                            <p className={`text-xs font-medium ${metric.positive ? 'text-[#57F287]' : 'text-[#ED4245]'}`}>
+                                {metric.change} this month
+                            </p>
+                        </motion.div>
+                    ))}
+                </div>
+
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
-                    {/* Bot Card */}
+                    {/* Column 1: Bot Status + Moderation Stats */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -344,9 +374,30 @@ export default function CommunitySolutions() {
                             Moderation Bot
                         </h3>
                         <BotCard />
+
+                        {/* Moderation Stats */}
+                        <div className={`
+                            p-4 space-y-3
+                            ${theme === 'minimalist' ? 'border border-theme' : ''}
+                            ${theme === 'neubrutalist' ? 'bg-white border-[3px] border-black shadow-[4px_4px_0px_#000]' : ''}
+                            ${theme === 'discord' ? 'bg-[#36393f] rounded-lg' : ''}
+                        `}>
+                            <p className="text-xs uppercase opacity-60 font-bold">This Week</p>
+                            {[
+                                { label: "Spam Blocked", value: "847", icon: "🛡️" },
+                                { label: "Scam Links", value: "124", icon: "🔗" },
+                                { label: "Warnings Issued", value: "23", icon: "⚠️" },
+                                { label: "Timeouts", value: "8", icon: "⏱️" },
+                            ].map((stat) => (
+                                <div key={stat.label} className="flex items-center justify-between text-sm">
+                                    <span className="opacity-70">{stat.icon} {stat.label}</span>
+                                    <span className="font-bold">{stat.value}</span>
+                                </div>
+                            ))}
+                        </div>
                     </motion.div>
 
-                    {/* Sentiment Chart */}
+                    {/* Column 2: Sentiment Chart + Trending Topics */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -356,10 +407,102 @@ export default function CommunitySolutions() {
                     >
                         <h3 className="text-lg font-bold font-theme flex items-center gap-2">
                             <TrendingUp className="w-5 h-5 text-accent" />
-                            Community Health Over Time
+                            Community Sentiment Over Time
                         </h3>
-                        <div className="h-64 lg:h-80 w-full">
+                        <div className="h-48 lg:h-56 w-full">
                             <SentimentChart />
+                        </div>
+
+                        {/* Sentiment Breakdown + Topics Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* Sentiment Breakdown */}
+                            <div className={`
+                                p-4
+                                ${theme === 'minimalist' ? 'border border-theme' : ''}
+                                ${theme === 'neubrutalist' ? 'bg-white border-[3px] border-black shadow-[4px_4px_0px_#000]' : ''}
+                                ${theme === 'discord' ? 'bg-[#36393f] rounded-lg' : ''}
+                            `}>
+                                <p className="text-xs uppercase opacity-60 font-bold mb-3">Sentiment Breakdown</p>
+                                <div className="space-y-2">
+                                    {[
+                                        { label: "Positive", percent: 68, color: "#57F287" },
+                                        { label: "Neutral", percent: 24, color: "#5865F2" },
+                                        { label: "Negative", percent: 8, color: "#ED4245" },
+                                    ].map((item) => (
+                                        <div key={item.label} className="flex items-center gap-3">
+                                            <div className="w-16 text-xs opacity-70">{item.label}</div>
+                                            <div className={`flex-grow h-2 rounded-full ${theme === 'discord' ? 'bg-[#202225]' : 'bg-accent-secondary'}`}>
+                                                <motion.div
+                                                    initial={{ width: 0 }}
+                                                    whileInView={{ width: `${item.percent}%` }}
+                                                    viewport={{ once: true }}
+                                                    transition={{ duration: 0.8, delay: 0.2 }}
+                                                    className="h-full rounded-full"
+                                                    style={{ backgroundColor: item.color }}
+                                                />
+                                            </div>
+                                            <span className="text-xs font-bold w-8">{item.percent}%</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Trending Topics */}
+                            <div className={`
+                                p-4
+                                ${theme === 'minimalist' ? 'border border-theme' : ''}
+                                ${theme === 'neubrutalist' ? 'bg-white border-[3px] border-black shadow-[4px_4px_0px_#000]' : ''}
+                                ${theme === 'discord' ? 'bg-[#36393f] rounded-lg' : ''}
+                            `}>
+                                <p className="text-xs uppercase opacity-60 font-bold mb-3">Trending Topics</p>
+                                <div className="flex flex-wrap gap-2">
+                                    {[
+                                        { topic: "Season 2 release", count: 342, hot: true },
+                                        { topic: "Game night ideas", count: 218, hot: true },
+                                        { topic: "Server events", count: 156, hot: false },
+                                        { topic: "New features", count: 89, hot: false },
+                                        { topic: "Collabs", count: 67, hot: false },
+                                    ].map((item) => (
+                                        <span
+                                            key={item.topic}
+                                            className={`
+                                                inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full
+                                                ${theme === 'discord'
+                                                    ? item.hot ? 'bg-accent/20 text-accent' : 'bg-[#202225] text-gray-400'
+                                                    : item.hot ? 'bg-accent/20 text-accent' : 'bg-accent-secondary opacity-70'
+                                                }
+                                            `}
+                                        >
+                                            {item.hot && <span className="text-[10px]">🔥</span>}
+                                            {item.topic}
+                                            <span className="opacity-60">({item.count})</span>
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Engagement Stats */}
+                        <div className="grid grid-cols-3 gap-4">
+                            {[
+                                { label: "Peak Hours", value: "8-11 PM", sublabel: "Most active time" },
+                                { label: "Top Channel", value: "#general", sublabel: "1.2k msgs/day" },
+                                { label: "Avg. Session", value: "24 min", sublabel: "Per member" },
+                            ].map((stat, i) => (
+                                <div
+                                    key={stat.label}
+                                    className={`
+                                        p-4 text-center
+                                        ${theme === 'minimalist' ? 'border border-theme' : ''}
+                                        ${theme === 'neubrutalist' ? 'bg-white border-[3px] border-black shadow-[4px_4px_0px_#000]' : ''}
+                                        ${theme === 'discord' ? 'bg-[#36393f] rounded-lg' : ''}
+                                    `}
+                                >
+                                    <p className="text-xs uppercase opacity-60">{stat.label}</p>
+                                    <p className="text-xl font-bold font-theme text-accent">{stat.value}</p>
+                                    <p className="text-xs opacity-50">{stat.sublabel}</p>
+                                </div>
+                            ))}
                         </div>
                     </motion.div>
                 </div>

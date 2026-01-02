@@ -28,10 +28,10 @@ export default function SentimentChart() {
                 <span className={`text-xs px-2 py-1 ${theme === 'neubrutalist' ? 'bg-black text-white' : 'bg-accent-secondary opacity-70'} rounded-sm`}>Last 7 Days</span>
             </h3>
 
-            <div className="flex-grow flex items-end justify-between gap-2 mt-4 min-h-[150px]">
+            <div className="flex-grow flex items-end justify-between gap-2 mt-4 min-h-0 overflow-hidden">
                 {DATA.map((d, i) => (
-                    <div key={i} className="flex flex-col items-center gap-2 w-full h-full justify-end group">
-                        <div className="w-full flex gap-1 items-end justify-center h-full relative">
+                    <div key={i} className="flex flex-col items-center gap-1 w-full h-full justify-end group">
+                        <div className="w-full flex gap-1 items-end justify-center flex-grow relative">
                             {/* Positive Bar */}
                             <motion.div
                                 initial={{ height: 0 }}
@@ -59,7 +59,7 @@ export default function SentimentChart() {
                  `}
                             />
                         </div>
-                        <span className="text-xs opacity-60 font-mono uppercase">{d.label}</span>
+                        <span className="text-[10px] opacity-60 font-mono uppercase shrink-0">{d.label}</span>
                     </div>
                 ))}
             </div>
