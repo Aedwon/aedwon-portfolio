@@ -196,12 +196,21 @@ export default function Navbar() {
             <style jsx global>{`
                 @keyframes pulseMinimalist {
                     0%, 100% { 
-                        box-shadow: 0 0 0 0 rgba(128, 128, 128, 0);
+                        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
                         transform: scale(1);
+                        background-color: inherit;
                     }
-                    50% { 
-                        box-shadow: 0 0 12px 4px rgba(128, 128, 128, 0.3);
-                        transform: scale(1.02);
+                    15%, 45% { 
+                        box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.15);
+                        transform: scale(1.08);
+                    }
+                    30% { 
+                        box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.1);
+                        transform: scale(1.05);
+                    }
+                    60% {
+                        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+                        transform: scale(1.03);
                     }
                 }
                 
