@@ -70,16 +70,10 @@ export default function Navbar() {
                         animation: bounceDiscord 1.5s ease-in-out;
                     }
                 `}</style>
-                <nav className="fixed top-0 left-0 right-0 z-50 flex h-12 items-center bg-[#202225] border-b border-[#1a1b1e]">
-                    {/* Server Icon Section - matches sidebar width */}
-                    <div className="hidden md:flex w-[72px] h-full items-center justify-center shrink-0 border-r border-[#1a1b1e]">
-                        <div className="w-10 h-10 rounded-2xl bg-accent flex items-center justify-center hover:rounded-xl transition-all duration-200 cursor-pointer">
-                            <Logo className="w-6 h-6 text-white" />
-                        </div>
-                    </div>
-
+                {/* Navbar starts after the server sidebar */}
+                <nav className="fixed top-0 left-[72px] right-0 z-50 hidden md:flex h-12 items-center bg-[#202225] border-b border-[#1a1b1e]">
                     {/* Server Name Section - matches channel sidebar width */}
-                    <div className="hidden md:flex w-60 h-full items-center px-4 shrink-0 border-r border-[#1a1b1e] bg-[#2f3136]">
+                    <div className="flex w-60 h-full items-center px-4 shrink-0 border-r border-[#1a1b1e] bg-[#2f3136]">
                         <div className="flex items-center gap-3 flex-1 min-w-0">
                             {/* Server Badge/Icon */}
                             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent to-[#4752c4] flex items-center justify-center shrink-0">
@@ -90,14 +84,6 @@ export default function Navbar() {
                                 <span className="text-[10px] text-gray-400 uppercase tracking-wide">Portfolio Server</span>
                             </div>
                         </div>
-                    </div>
-
-                    {/* Mobile: Show logo and name */}
-                    <div className="flex md:hidden items-center gap-3 px-4">
-                        <div className="w-8 h-8 rounded-xl bg-accent flex items-center justify-center">
-                            <Logo className="w-5 h-5 text-white" />
-                        </div>
-                        <span className="font-bold text-white text-sm">The Living Lab</span>
                     </div>
 
                     {/* Spacer + Controls */}
@@ -143,10 +129,60 @@ export default function Navbar() {
                         </div>
 
                         {/* Window Controls (decorative) */}
-                        <div className="hidden md:flex items-center gap-2 ml-2">
+                        <div className="flex items-center gap-2 ml-2">
                             <div className="w-3 h-3 rounded-full bg-[#3ba55c] opacity-60 hover:opacity-100 cursor-pointer transition-opacity" />
                             <div className="w-3 h-3 rounded-full bg-[#faa61a] opacity-60 hover:opacity-100 cursor-pointer transition-opacity" />
                             <div className="w-3 h-3 rounded-full bg-[#ed4245] opacity-60 hover:opacity-100 cursor-pointer transition-opacity" />
+                        </div>
+                    </div>
+                </nav>
+
+                {/* Mobile navbar - full width */}
+                <nav className="fixed top-0 left-0 right-0 z-50 flex md:hidden h-12 items-center bg-[#202225] border-b border-[#1a1b1e] px-4">
+                    <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-xl bg-accent flex items-center justify-center">
+                            <Logo className="w-5 h-5 text-white" />
+                        </div>
+                        <span className="font-bold text-white text-sm">The Living Lab</span>
+                    </div>
+
+                    <div className="flex-1 flex justify-end">
+                        <div className="relative">
+                            <button
+                                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                                className={`flex items-center gap-2 px-3 py-1.5 text-xs font-medium bg-[#36393f] hover:bg-[#404449] text-gray-200 rounded transition-all ${isAnimating ? 'theme-toggle-bounce-discord' : ''}`}
+                            >
+                                <Gamepad2 className="w-3.5 h-3.5" />
+                            </button>
+
+                            {isDropdownOpen && (
+                                <>
+                                    <div
+                                        className="fixed inset-0 z-10"
+                                        onClick={() => setIsDropdownOpen(false)}
+                                    />
+                                    <div className="absolute right-0 top-full mt-2 w-48 bg-[#18191c] shadow-xl rounded-md p-1.5 z-20 border border-[#1a1b1e]">
+                                        <button
+                                            onClick={() => { setTheme('minimalist'); setIsDropdownOpen(false); }}
+                                            className="flex items-center w-full gap-2 px-3 py-2 text-sm hover:bg-[#36393f] rounded text-gray-200"
+                                        >
+                                            <Briefcase className="w-4 h-4" /> Minimalist
+                                        </button>
+                                        <button
+                                            onClick={() => { setTheme('neubrutalist'); setIsDropdownOpen(false); }}
+                                            className="flex items-center w-full gap-2 px-3 py-2 text-sm hover:bg-[#36393f] rounded text-gray-200"
+                                        >
+                                            <Zap className="w-4 h-4" /> Neubrutalist
+                                        </button>
+                                        <button
+                                            onClick={() => { setTheme('discord'); setIsDropdownOpen(false); }}
+                                            className="flex items-center w-full gap-2 px-3 py-2 text-sm hover:bg-[#36393f] rounded text-gray-200 bg-[#36393f] text-white"
+                                        >
+                                            <Gamepad2 className="w-4 h-4" /> DiscordOS
+                                        </button>
+                                    </div>
+                                </>
+                            )}
                         </div>
                     </div>
                 </nav>

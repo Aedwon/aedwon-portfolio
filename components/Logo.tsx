@@ -2,7 +2,12 @@
 
 import { useTheme } from "./ThemeContext";
 
-export default function Logo({ className = "w-10 h-10" }: { className?: string }) {
+interface LogoProps {
+    className?: string;
+    forceWhite?: boolean;
+}
+
+export default function Logo({ className = "w-10 h-10", forceWhite = false }: LogoProps) {
     const { theme } = useTheme();
 
     return (
@@ -16,20 +21,23 @@ export default function Logo({ className = "w-10 h-10" }: { className?: string }
                 d="M50 15 L15 85 H32 L50 45 L68 85 H85 L50 15 Z"
                 className={`
                     fill-current
-                    ${theme === 'minimalist' ? 'text-foreground' : ''}
-                    ${theme === 'neubrutalist' ? 'text-black' : ''}
-                    ${theme === 'discord' ? 'text-accent' : ''}
+                    ${forceWhite ? 'text-white' : ''}
+                    ${!forceWhite && theme === 'minimalist' ? 'text-foreground' : ''}
+                    ${!forceWhite && theme === 'neubrutalist' ? 'text-black' : ''}
+                    ${!forceWhite && theme === 'discord' ? 'text-accent' : ''}
                 `}
             />
             {/* Floating Chevron / Crossbar Effect */}
             <path
                 d="M50 55 L38 75 H62 L50 55 Z"
                 className={`
-                    ${theme === 'minimalist' ? 'fill-background' : ''}
-                    ${theme === 'neubrutalist' ? 'fill-white' : ''}
-                    ${theme === 'discord' ? 'fill-[#2f3136]' : ''}
+                    ${forceWhite ? 'fill-transparent' : ''}
+                    ${!forceWhite && theme === 'minimalist' ? 'fill-background' : ''}
+                    ${!forceWhite && theme === 'neubrutalist' ? 'fill-white' : ''}
+                    ${!forceWhite && theme === 'discord' ? 'fill-[#2f3136]' : ''}
                 `}
             />
         </svg>
     );
 }
+
