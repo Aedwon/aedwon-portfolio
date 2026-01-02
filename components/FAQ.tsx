@@ -41,7 +41,7 @@ export default function FAQ() {
             py-20 px-6 border-b border-theme transition-colors duration-300
             ${theme === 'minimalist' ? 'bg-accent-secondary/10' : ''}
             ${theme === 'neubrutalist' ? 'bg-[#FFDEE9] border-b-[3px] border-black' : ''}
-            ${theme === 'discord' ? 'bg-[#2f3136]' : ''}
+            ${theme === 'discord' ? 'bg-[#36393f]' : ''}
         `}>
             <div className="max-w-3xl mx-auto">
                 <div className="mb-16 text-center">
@@ -65,7 +65,7 @@ export default function FAQ() {
                                 overflow-hidden transition-all
                                 ${theme === 'minimalist' ? 'border border-theme bg-background' : ''}
                                 ${theme === 'neubrutalist' ? 'bg-white border-[3px] border-black shadow-[4px_4px_0px_#000]' : ''}
-                                ${theme === 'discord' ? 'bg-[#36393f] rounded-theme' : ''}
+                                ${theme === 'discord' ? `bg-[#2f3136] rounded-lg ${openIndex === i ? 'border-l-4 border-l-accent' : 'border-l-4 border-l-transparent'}` : ''}
                             `}
                         >
                             <button

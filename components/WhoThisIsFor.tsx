@@ -48,7 +48,7 @@ export default function WhoThisIsFor() {
                             p-8
                             ${theme === 'minimalist' ? 'border border-theme' : ''}
                             ${theme === 'neubrutalist' ? 'bg-[#90EE90] border-[3px] border-black shadow-[4px_4px_0px_#000]' : ''}
-                            ${theme === 'discord' ? 'bg-[#2f3136] rounded-theme' : ''}
+                            ${theme === 'discord' ? 'bg-[#2f3136] rounded-lg border-l-4 border-l-[#57F287]' : ''}
                         `}
                     >
                         <h3 className={`
@@ -99,7 +99,7 @@ export default function WhoThisIsFor() {
                             p-8
                             ${theme === 'minimalist' ? 'border border-theme' : ''}
                             ${theme === 'neubrutalist' ? 'bg-[#FFB3BA] border-[3px] border-black shadow-[4px_4px_0px_#000]' : ''}
-                            ${theme === 'discord' ? 'bg-[#2f3136] rounded-theme' : ''}
+                            ${theme === 'discord' ? 'bg-[#2f3136] rounded-lg border-l-4 border-l-[#ED4245]' : ''}
                         `}
                     >
                         <h3 className={`

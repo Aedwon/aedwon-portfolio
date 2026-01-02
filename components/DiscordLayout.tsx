@@ -15,11 +15,11 @@ const CHANNELS = [
         category: 'PORTFOLIO', items: [
             { id: 'web', icon: Hash, href: '/web-solutions', label: 'web-solutions' },
             { id: 'community', icon: Hash, href: '/community-systems', label: 'community-systems' },
-            { id: 'process', icon: Hash, href: '/process', label: 'the-process' },
         ]
     },
     {
         category: 'CONTACT', items: [
+            { id: 'process', icon: Hash, href: '/process', label: 'the-process' },
             { id: 'contact', icon: Mail, href: '/contact', label: 'start-a-project' },
         ]
     },

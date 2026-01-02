@@ -67,7 +67,7 @@ export default function FeaturedProjects() {
                                 group relative p-6 flex flex-col gap-4 transition-all
                                 ${theme === 'minimalist' ? 'bg-background border border-theme hover:border-foreground' : ''}
                                 ${theme === 'neubrutalist' ? 'bg-white border-[3px] border-black shadow-[4px_4px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#000]' : ''}
-                                ${theme === 'discord' ? 'bg-[#36393f] rounded-theme hover:bg-[#40444b]' : ''}
+                                ${theme === 'discord' ? 'bg-[#2f3136] rounded-lg border-l-4 border-l-accent hover:bg-[#32353b]' : ''}
                             `}
                         >
                             <div className="flex items-center justify-between">
