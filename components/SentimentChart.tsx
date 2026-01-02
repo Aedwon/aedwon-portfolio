@@ -18,14 +18,14 @@ export default function SentimentChart() {
 
     return (
         <div className={`
-      w-full p-6 flex flex-col gap-4 h-full
+      w-full p-4 flex flex-col gap-4 h-full
       ${theme === 'minimalist' ? 'bg-background border border-theme' : ''}
       ${theme === 'neubrutalist' ? 'bg-white border-[3px] border-black shadow-[4px_4px_0px_#000]' : ''}
       ${theme === 'discord' ? 'bg-accent-secondary rounded-theme' : ''}
     `}>
-            <h3 className="text-xl font-bold font-theme tracking-tight flex justify-between items-center">
+            <h3 className="text-xl font-bold font-theme tracking-tight flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0">
                 <span>Sentiment Analysis</span>
-                <span className={`text-xs px-2 py-1 ${theme === 'neubrutalist' ? 'bg-black text-white' : 'bg-accent-secondary opacity-70'} rounded-sm`}>Last 7 Days</span>
+                <span className={`text-xs px-2 py-1 ${theme === 'neubrutalist' ? 'bg-black text-white' : 'bg-accent-secondary opacity-70'} rounded-sm self-start sm:self-auto`}>Last 7 Days</span>
             </h3>
 
             <div className="flex-grow flex items-end justify-between gap-2 mt-4 min-h-0 overflow-hidden">

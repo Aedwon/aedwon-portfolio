@@ -409,7 +409,7 @@ export default function CommunitySolutions() {
                             <TrendingUp className="w-5 h-5 text-accent" />
                             Community Sentiment Over Time
                         </h3>
-                        <div className="h-48 lg:h-56 w-full">
+                        <div className="h-64 lg:h-72 w-full">
                             <SentimentChart />
                         </div>
 
@@ -483,7 +483,7 @@ export default function CommunitySolutions() {
                         </div>
 
                         {/* Engagement Stats */}
-                        <div className="grid grid-cols-3 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                             {[
                                 { label: "Peak Hours", value: "8-11 PM", sublabel: "Most active time" },
                                 { label: "Top Channel", value: "#general", sublabel: "1.2k msgs/day" },
