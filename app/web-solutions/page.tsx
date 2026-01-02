@@ -52,23 +52,32 @@ const VALUE_PROPS = [
     {
         icon: Zap,
         title: "Performance-Obsessed",
-        description: "Every site scores 95+ on Core Web Vitals. Fast sites rank higher and convert better.",
+        description: "Every site scores 90+ on Core Web Vitals. Fast sites rank higher on Google and convert better.",
     },
     {
         icon: TrendingUp,
         title: "Built to Convert",
-        description: "I don't just make it pretty. I optimize every pixel for your bottom line.",
+        description: "Strategic UX design backed by data. Every layout decision is optimized for your bottom line.",
     },
     {
         icon: Shield,
-        title: "Future-Proof Code",
-        description: "Clean, documented, maintainable. Your next developer will thank you.",
+        title: "Compliant & Secure",
+        description: "Need GDPR, CCPA, or WCAG 2.1 compliance? I offer it as an add-on to ensure your site meets international standards.",
     },
     {
         icon: Clock,
         title: "On-Time, Every Time",
-        description: "100% on-time delivery track record. Fixed pricing, no scope creep surprises.",
+        description: "100% on-time delivery record. Fixed pricing with no scope creep surprises.",
     },
+];
+
+const TRUST_BADGES = [
+    "GDPR Compliant*",
+    "WCAG 2.1 AA*",
+    "SSL/HTTPS",
+    "Mobile-First",
+    "SEO Optimized",
+    "Core Web Vitals 90+",
 ];
 
 export default function WebSolutions() {
@@ -97,11 +106,12 @@ export default function WebSolutions() {
                             Websites That <span className={`${theme === 'discord' ? 'text-accent' : 'text-accent'}`}>Actually</span> Grow Your Business
                         </h1>
                         <p className="text-xl md:text-2xl opacity-80 leading-relaxed font-theme max-w-3xl mb-8">
-                            Your website shouldn&apos;t just exist. It should be your hardest-working salesperson.
-                            I build blazing-fast, conversion-optimized web experiences that turn visitors into customers.
+                            Your website should be your hardest-working salesperson. I build blazing-fast,
+                            conversion-optimized experiences that meet international standards for accessibility,
+                            privacy, and performance.
                         </p>
 
-                        <div className="flex flex-wrap gap-4">
+                        <div className="flex flex-wrap gap-4 mb-8">
                             <Link href="/contact">
                                 <button className={`
                                     flex items-center gap-2 px-8 py-4 text-base font-bold transition-all
@@ -112,6 +122,23 @@ export default function WebSolutions() {
                                     Start a Project <ArrowRight className="w-5 h-5" />
                                 </button>
                             </Link>
+                        </div>
+
+                        {/* Trust Badges */}
+                        <div className="flex flex-wrap gap-3">
+                            {TRUST_BADGES.map((badge) => (
+                                <span
+                                    key={badge}
+                                    className={`
+                                        text-xs font-medium px-3 py-1.5 rounded-full
+                                        ${theme === 'minimalist' ? 'bg-accent-secondary border border-theme' : ''}
+                                        ${theme === 'neubrutalist' ? 'bg-white border-2 border-black' : ''}
+                                        ${theme === 'discord' ? 'bg-[#2f3136] text-gray-300' : ''}
+                                    `}
+                                >
+                                    ✓ {badge}
+                                </span>
+                            ))}
                         </div>
                     </motion.div>
                 </div>

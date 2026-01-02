@@ -2,32 +2,49 @@
 
 import { useTheme } from "@/components/ThemeContext";
 import { motion } from "framer-motion";
-import { Search, PenTool, Code2, Rocket } from "lucide-react";
+import { Search, FileText, Code2, Rocket, TrendingUp, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const STEPS = [
     {
         id: 1,
-        title: "Discovery & Audit",
-        description: "I dive deep into your current infrastructure and business goals. No assumptions, just data.",
+        title: "The Diagnostic",
+        subtitle: "Technical Health Check",
+        description: "Before we write code or post announcements, I conduct a deep-dive audit of your existing infrastructure. I identify security vulnerabilities in your verification flows, engagement bottlenecks in your user journey, and opportunities for automation.",
+        outcome: "You get a clear report on why your community isn't growing or staying safe.",
         icon: Search,
     },
     {
         id: 2,
-        title: "Blueprint & Strategy",
-        description: "Architecting the solution. I deliver a comprehensive technical roadmap before writing a single line of code.",
-        icon: PenTool,
+        title: "The Blueprint",
+        subtitle: "Strategy & Scope",
+        description: "We define the destination. I deliver a comprehensive roadmap that separates the Build Phase (creating custom bots, dashboards, and integrations) from the Run Phase (engagement strategy and moderation).",
+        outcome: "We lock in requirements upfront so you know exactly what you're paying for and when it will be delivered.",
+        icon: FileText,
     },
     {
         id: 3,
-        title: "Agile Development",
-        description: "Iterative sprints with transparent updates. You watch your product come to life in real-time.",
+        title: "The Build",
+        subtitle: "Agile Development",
+        description: "I develop your custom tools in a secure Staging Environment, ensuring zero disruption to your live community. Whether it's a token-gated access bot or a custom game integration, I test it rigorously.",
+        outcome: "You receive weekly 'Show and Tell' updates to see the technology in action before it goes public.",
         icon: Code2,
     },
     {
         id: 4,
-        title: "Handoff & Training",
-        description: "Complete documentation and team training. I ensure you own your system, not rent it.",
+        title: "The Launch",
+        subtitle: "Deployment & Education",
+        description: "We go live. I deploy the infrastructure and immediately transition into education mode, creating 'User Manuals' for your team and tutorials for your community.",
+        outcome: "Your users actually use the new features we've built, maximizing your ROI immediately.",
         icon: Rocket,
+    },
+    {
+        id: 5,
+        title: "The Growth Engine",
+        subtitle: "Management & Optimization",
+        description: "This is where I switch from 'Developer' to 'Community Architect,' acting as your Fractional Community Lead. I monitor uptime, patch bugs, and manage your moderation team.",
+        outcome: "I use data from our bots to iterate on community strategy, ensuring your ecosystem evolves as your user base grows.",
+        icon: TrendingUp,
     },
 ];
 
@@ -39,11 +56,15 @@ export default function ProcessPage() {
 
             <div className="max-w-4xl mx-auto">
                 <div className="mb-16 text-center">
+                    <p className={`text-sm font-bold uppercase tracking-widest mb-4 ${theme === 'discord' ? 'text-accent' : 'opacity-60'}`}>
+                        How I Work
+                    </p>
                     <h1 className="text-4xl md:text-6xl font-bold font-theme tracking-tight mb-4">
-                        The Process
+                        From Chaos to Clarity
                     </h1>
-                    <p className="opacity-80 text-lg">
-                        From chaos to clarity. My proven methodology ensuring high-impact delivery.
+                    <p className="opacity-80 text-lg max-w-2xl mx-auto">
+                        A proven methodology for building and managing communities that actually grow.
+                        No guesswork, no wasted sprints, just high-impact delivery.
                     </p>
                 </div>
 
@@ -56,7 +77,7 @@ export default function ProcessPage() {
                 ${theme === 'discord' ? 'bg-accent/30 w-1 -ml-0.5' : ''}
             `} />
 
-                    <div className="flex flex-col gap-12 md:gap-24">
+                    <div className="flex flex-col gap-12 md:gap-20">
                         {STEPS.map((step, index) => {
                             const isEven = index % 2 === 0;
                             return (
@@ -66,7 +87,7 @@ export default function ProcessPage() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    className={`relative flex items-center md:justify-between gap-8 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                                    className={`relative flex items-start md:justify-between gap-8 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}
                                 >
                                     {/* Icon / Marker */}
                                     <div className={`
@@ -82,9 +103,9 @@ export default function ProcessPage() {
                                     <div className={`
                                 w-full md:w-[calc(50%-3rem)] ml-20 md:ml-0
                                 p-6
-                                ${theme === 'minimalist' ? ' md:hover:bg-accent-secondary/30 transition-colors rounded-sm' : ''}
-                                ${theme === 'neubrutalist' ? 'bg-white border-[3px] border-black shadow-[4px_4px_0px_#000] hover:-translate-y-1 transition-transform' : ''}
-                                ${theme === 'discord' ? 'bg-accent-secondary rounded-theme border border-[#202225] hover:border-accent transition-colors' : ''}
+                                ${theme === 'minimalist' ? 'border border-theme hover:border-foreground transition-colors' : ''}
+                                ${theme === 'neubrutalist' ? 'bg-white border-[3px] border-black shadow-[4px_4px_0px_#000]' : ''}
+                                ${theme === 'discord' ? 'bg-accent-secondary rounded-lg border border-[#202225]' : ''}
                             `}>
                                         <div className={`
                                     text-xs font-bold uppercase mb-2
@@ -92,10 +113,18 @@ export default function ProcessPage() {
                                     ${theme === 'neubrutalist' ? 'bg-black text-white inline-block px-2 py-0.5' : ''}
                                     ${theme === 'discord' ? 'text-accent' : ''}
                                 `}>
-                                            Step 0{step.id}
+                                            Step 0{step.id}: {step.subtitle}
                                         </div>
-                                        <h3 className="text-2xl font-bold font-theme mb-2">{step.title}</h3>
-                                        <p className="opacity-80">{step.description}</p>
+                                        <h3 className="text-2xl font-bold font-theme mb-3">{step.title}</h3>
+                                        <p className="opacity-80 mb-4">{step.description}</p>
+                                        <div className={`
+                                            text-sm font-medium p-3 rounded-lg
+                                            ${theme === 'minimalist' ? 'bg-accent-secondary' : ''}
+                                            ${theme === 'neubrutalist' ? 'bg-[#B8F2E6] border-2 border-black' : ''}
+                                            ${theme === 'discord' ? 'bg-[#202225] border-l-4 border-l-accent' : ''}
+                                        `}>
+                                            <strong>Outcome:</strong> {step.outcome}
+                                        </div>
                                     </div>
 
                                     {/* Empty space for the other side on desktop */}
@@ -108,9 +137,28 @@ export default function ProcessPage() {
                 </div>
 
                 {/* CTA at bottom */}
-                <div className="mt-24 text-center">
-                    <p className="text-lg mb-6 font-bold">Ready to start?</p>
-                    {/* This could link to contact page */}
+                <div className={`
+                    mt-24 text-center p-8 rounded-lg
+                    ${theme === 'minimalist' ? 'border border-theme' : ''}
+                    ${theme === 'neubrutalist' ? 'bg-accent border-[3px] border-black shadow-[4px_4px_0px_#000]' : ''}
+                    ${theme === 'discord' ? 'bg-accent' : ''}
+                `}>
+                    <h3 className={`text-2xl font-bold font-theme mb-4 ${theme !== 'minimalist' ? 'text-white' : ''}`}>
+                        Ready to Start Your Project?
+                    </h3>
+                    <p className={`mb-6 ${theme === 'minimalist' ? 'opacity-70' : 'text-white/80'}`}>
+                        Let&apos;s jump on a quick 15-minute call. I&apos;ll give you honest advice on whether I can help.
+                    </p>
+                    <Link href="/contact">
+                        <button className={`
+                            inline-flex items-center gap-2 px-8 py-4 text-base font-bold transition-all
+                            ${theme === 'minimalist' ? 'bg-foreground text-background hover:opacity-90' : ''}
+                            ${theme === 'neubrutalist' ? 'bg-white text-black border-[3px] border-black shadow-[4px_4px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#000]' : ''}
+                            ${theme === 'discord' ? 'bg-white text-accent hover:bg-gray-100 rounded-lg' : ''}
+                        `}>
+                            Book a Free Call <ArrowRight className="w-5 h-5" />
+                        </button>
+                    </Link>
                 </div>
 
             </div>

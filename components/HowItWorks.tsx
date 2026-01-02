@@ -2,32 +2,38 @@
 
 import { useTheme } from "./ThemeContext";
 import { motion } from "framer-motion";
-import { MessageSquare, FileText, Code2, Rocket } from "lucide-react";
+import { Search, FileText, Code2, Rocket, TrendingUp } from "lucide-react";
 
 const STEPS = [
     {
-        icon: MessageSquare,
+        icon: Search,
         step: "01",
-        title: "Discovery Call",
-        description: "We hop on a quick call to understand your goals, timeline, and budget. No pitch, just honest advice.",
+        title: "The Diagnostic",
+        description: "Deep-dive audit of your infrastructure. I identify security gaps, engagement bottlenecks, and automation opportunities.",
     },
     {
         icon: FileText,
         step: "02",
-        title: "Proposal & Scope",
-        description: "You receive a clear proposal with fixed pricing, milestones, and a timeline. No surprises.",
+        title: "The Blueprint",
+        description: "Comprehensive roadmap with fixed pricing. You know exactly what you're paying for and when it delivers.",
     },
     {
         icon: Code2,
         step: "03",
-        title: "Build & Iterate",
-        description: "I build in weekly sprints with regular demos. You see progress and provide feedback in real-time.",
+        title: "The Build",
+        description: "Agile development in a staging environment. Weekly demos so you see progress before anything goes live.",
     },
     {
         icon: Rocket,
         step: "04",
-        title: "Launch & Support",
-        description: "We launch together, and I stick around for 30 days of support to ensure everything runs smoothly.",
+        title: "The Launch",
+        description: "Deployment plus education. User manuals for your team, tutorials for your community. Immediate ROI.",
+    },
+    {
+        icon: TrendingUp,
+        step: "05",
+        title: "The Growth Engine",
+        description: "Ongoing management and optimization. I use data from our tools to evolve your strategy as you scale.",
     },
 ];
 
@@ -43,23 +49,24 @@ export default function HowItWorks() {
             <div className="max-w-6xl mx-auto">
                 <div className="mb-16 text-center">
                     <h2 className="text-3xl md:text-5xl font-bold font-theme tracking-tight mb-4">
-                        Simple, Transparent Process
+                        From Chaos to Clarity
                     </h2>
                     <p className="opacity-70 text-lg max-w-2xl mx-auto">
-                        No mystery. No endless back-and-forth. Here&apos;s exactly how we&apos;ll work together.
+                        A proven methodology that delivers high-impact results. Here&apos;s exactly how we&apos;ll work together.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="flex flex-wrap justify-center gap-6">
                     {STEPS.map((step, i) => (
                         <motion.div
                             key={step.step}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: i * 0.15 }}
+                            transition={{ delay: i * 0.1 }}
                             className={`
-                                relative p-6 flex flex-col gap-4
+                                relative p-5 flex flex-col gap-3
+                                w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]
                                 ${theme === 'minimalist' ? 'border border-theme hover:border-foreground transition-colors' : ''}
                                 ${theme === 'neubrutalist' ? 'bg-white border-[3px] border-black shadow-[4px_4px_0px_#000]' : ''}
                                 ${theme === 'discord' ? 'bg-[#2f3136] rounded-lg border-l-4 border-l-accent' : ''}
@@ -67,15 +74,15 @@ export default function HowItWorks() {
                         >
                             <div className="flex items-center justify-between">
                                 <div className={`
-                                    p-3 rounded-theme
+                                    p-2.5 rounded-theme
                                     ${theme === 'minimalist' ? 'bg-foreground text-background' : ''}
                                     ${theme === 'neubrutalist' ? 'bg-accent border-2 border-black' : ''}
                                     ${theme === 'discord' ? 'bg-accent text-white' : ''}
                                 `}>
-                                    <step.icon className="w-5 h-5" />
+                                    <step.icon className="w-4 h-4" />
                                 </div>
                                 <span className={`
-                                    text-4xl font-bold
+                                    text-3xl font-bold
                                     ${theme === 'minimalist' ? 'opacity-10' : ''}
                                     ${theme === 'neubrutalist' ? 'opacity-30' : ''}
                                     ${theme === 'discord' ? 'text-accent/30' : ''}
@@ -84,7 +91,7 @@ export default function HowItWorks() {
                                 </span>
                             </div>
 
-                            <h3 className="text-xl font-bold font-theme">
+                            <h3 className="text-lg font-bold font-theme">
                                 {step.title}
                             </h3>
 

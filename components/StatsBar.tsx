@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import { Briefcase, Users, Clock, CheckCircle } from "lucide-react";
 
 const STATS = [
-    { icon: Briefcase, value: "50+", label: "Projects Delivered" },
-    { icon: Users, value: "20k+", label: "Community Members" },
+    { icon: Briefcase, value: "20+", label: "Projects Delivered" },
+    { icon: Users, value: "110k+", label: "Community Members" },
     { icon: Clock, value: "<24h", label: "Response Time" },
     { icon: CheckCircle, value: "100%", label: "On-Time Delivery" },
 ];

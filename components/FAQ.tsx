@@ -24,11 +24,11 @@ const FAQS = [
     },
     {
         question: "How long does a typical project take?",
-        answer: "Most web projects take 4-8 weeks, and Discord bot systems take 2-4 weeks. I'll give you a specific timeline in the proposal after our discovery call, and I have a 100% on-time delivery track record.",
+        answer: "Timelines depend on scope and complexity. After our discovery call, I'll give you a specific estimate in the proposal. I pride myself on transparent scheduling and on-time delivery.",
     },
     {
         question: "What's your pricing like?",
-        answer: "I work on fixed-price projects, not hourly. You'll know exactly what you're paying before we start. Typical web projects range from $3k-$15k and bot systems from $1k-$5k, depending on complexity.",
+        answer: "I work on fixed-price projects, not hourly. You'll know exactly what you're paying before we start. After understanding your requirements, I'll provide a custom quote based on scope and complexity.",
     },
 ];
 
