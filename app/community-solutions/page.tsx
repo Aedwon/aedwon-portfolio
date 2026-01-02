@@ -4,7 +4,8 @@ import { useTheme } from "@/components/ThemeContext";
 import SentimentChart from "@/components/SentimentChart";
 import BotCard from "@/components/BotCard";
 import { motion } from "framer-motion";
-import { TrendingUp, Users, ShieldAlert, Clock, Zap, ArrowRight, Bot, MessageSquare, Calendar, Headphones, Star, CheckCircle } from "lucide-react";
+import { TrendingUp, Users, ShieldAlert, Clock, Zap, ArrowRight, Bot, MessageSquare, Calendar, Star, CheckCircle, Briefcase } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const VALUE_PROPS = [
@@ -53,8 +54,9 @@ const SERVICE_TIERS = [
         tier: "The Foundation",
         tagline: "Professional Architecture",
         description: "A professional, secure environment designed for growth. I build the stage; you bring the audience.",
-        price: "$350",
-        priceDetail: "One-time setup",
+        price: "$500",
+        pricePrefix: null,
+        priceSuffix: "One-time setup",
         features: [
             "Anti-raid & Automod Logic",
             "Clear Permissions Hierarchy",
@@ -69,8 +71,9 @@ const SERVICE_TIERS = [
         tier: "The Automaton",
         tagline: "Bespoke Bot Dev",
         description: "Custom software that gives your community a unique superpower. Your brand, your utility, your code.",
-        price: "$950",
-        priceDetail: "Starting at",
+        price: "$1,000",
+        pricePrefix: "Starting at",
+        priceSuffix: null,
         features: [
             "Branded Bot Identity (Name/Avatar)",
             "Custom Engagement Systems (XP)",
@@ -84,9 +87,10 @@ const SERVICE_TIERS = [
     {
         tier: "The Operator",
         tagline: "Fractional Management",
-        description: "I act as your Director of Community. I handle the strategy, the staff, and the tech so you can lead.",
+        description: "I act as your Community Manager. I handle the strategy, the staff, and the tech so you can lead.",
         price: "$1,250",
-        priceDetail: "/ month",
+        pricePrefix: null,
+        priceSuffix: "/ month",
         features: [
             "Full Strategy & Event Planning",
             "Staff Oversight & Training",
@@ -152,6 +156,50 @@ export default function CommunitySolutions() {
                 </div>
             </section>
 
+            {/* Community Portfolio / Trusted By */}
+            <section className={`
+                px-6 py-12 border-y border-theme
+                ${theme === 'discord' ? 'bg-[#202225]' : 'bg-accent-secondary/5'}
+            `}>
+                <div className="max-w-7xl mx-auto text-center">
+                    <p className={`text-sm font-bold uppercase tracking-widest mb-8 ${theme === 'discord' ? 'text-gray-400' : 'opacity-60'}`}>
+                        Trusted Experience With Global Gaming Communities
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-12 md:gap-16 items-center">
+                        {/* Game 1: Mobile Legends */}
+                        <div className="relative h-16 w-48 transition-transform hover:scale-105">
+                            <Image
+                                src="/brands/mlbb-logo.png"
+                                alt="Mobile Legends: Bang Bang"
+                                fill
+                                className="object-contain"
+                            />
+                        </div>
+
+                        {/* Game 2: Genshin Impact */}
+                        {/* Zoomed and cropped to maximize visibility */}
+                        <div className="relative h-36 w-96 transition-transform hover:scale-105 overflow-hidden flex items-center justify-center">
+                            <Image
+                                src="/brands/genshin-logo.png"
+                                alt="Genshin Impact"
+                                fill
+                                className={`object-contain scale-[1.4] ${theme === 'discord' ? 'brightness-[0] invert' : ''}`}
+                            />
+                        </div>
+
+                        {/* Game 3: Blue Protocol */}
+                        <div className="relative h-12 w-48 transition-transform hover:scale-105">
+                            <Image
+                                src="/brands/blue-protocol-logo.png"
+                                alt="Blue Protocol: Star Resonance"
+                                fill
+                                className="object-contain"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* Dashboard Preview */}
             <section className={`
                 px-6 py-16 md:px-12 md:py-24 lg:px-24
@@ -189,7 +237,10 @@ export default function CommunitySolutions() {
                         >
                             <p className="text-xs uppercase opacity-60 mb-1">{metric.label}</p>
                             <p className="text-2xl font-bold font-theme">{metric.value}</p>
-                            <p className={`text-xs font-medium ${metric.positive ? 'text-[#57F287]' : 'text-[#ED4245]'}`}>
+                            <p className={`text-xs font-medium ${theme === 'minimalist'
+                                ? (metric.positive ? 'text-green-700' : 'text-red-600')
+                                : (metric.positive ? 'text-[#57F287]' : 'text-[#ED4245]')
+                                }`}>
                                 {metric.change} this month
                             </p>
                         </motion.div>
@@ -419,7 +470,7 @@ export default function CommunitySolutions() {
                 <div className="max-w-4xl mx-auto">
                     <div className="mb-12">
                         <div className="flex items-center gap-2 mb-4">
-                            <Headphones className="w-6 h-6 text-accent" />
+                            <Briefcase className="w-6 h-6 text-accent" />
                             <p className={`text-sm font-bold uppercase tracking-widest ${theme === 'discord' ? 'text-accent' : 'opacity-60'}`}>
                                 Full-Service Management
                             </p>
@@ -499,8 +550,12 @@ export default function CommunitySolutions() {
                             <div className="mb-6">
                                 <p className="text-xs font-bold uppercase tracking-wider opacity-60 mb-1">{service.tagline}</p>
                                 <h3 className="text-2xl font-bold font-theme mb-2">{service.tier}</h3>
-                                <div className="text-3xl font-bold font-theme mb-4 text-accent">
-                                    {service.price} <span className="text-base font-normal opacity-60 text-foreground">{service.priceDetail}</span>
+                                <div className="text-3xl font-bold font-theme mb-4 text-accent flex items-baseline flex-wrap gap-2">
+                                    {/* @ts-ignore */}
+                                    {service.pricePrefix && <span className="text-base font-normal opacity-60 text-foreground">{service.pricePrefix}</span>}
+                                    <span>{service.price}</span>
+                                    {/* @ts-ignore */}
+                                    {service.priceSuffix && <span className="text-base font-normal opacity-60 text-foreground">{service.priceSuffix}</span>}
                                 </div>
                                 <p className={`text-sm ${theme === 'discord' ? 'text-gray-400' : 'opacity-70'}`}>
                                     {service.description}
