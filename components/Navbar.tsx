@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useTheme } from "./ThemeContext";
-import { Briefcase, Zap, Gamepad2 } from "lucide-react";
+import { Briefcase, Zap, Gamepad2, Menu, X, ChevronDown, Home, Hash, Mail } from "lucide-react";
 
 import Logo from "./Logo";
 
@@ -11,6 +11,7 @@ export default function Navbar() {
     const { theme, setTheme } = useTheme();
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isAnimating, setIsAnimating] = useState(false);
 
     // Trigger attention animation every 5 seconds
@@ -77,7 +78,7 @@ export default function Navbar() {
                         <div className="flex items-center gap-3 flex-1 min-w-0">
                             {/* Server Badge/Icon */}
                             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent to-[#4752c4] flex items-center justify-center shrink-0">
-                                <span className="text-white font-bold text-sm">TL</span>
+                                <Logo className="w-5 h-5" forceWhite={true} />
                             </div>
                             <div className="flex flex-col min-w-0">
                                 <span className="font-semibold text-white text-sm truncate">The Living Lab</span>
@@ -138,21 +139,24 @@ export default function Navbar() {
                 </nav>
 
                 {/* Mobile navbar - full width */}
-                <nav className="fixed top-0 left-0 right-0 z-50 flex md:hidden h-12 items-center bg-[#202225] border-b border-[#1a1b1e] px-4">
+                <nav className="fixed top-0 left-0 right-0 z-50 flex md:hidden h-16 items-center bg-[#202225] border-b border-[#1a1b1e] px-4" aria-label="Mobile navigation">
                     <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-xl bg-accent flex items-center justify-center">
-                            <Logo className="w-5 h-5 text-white" />
+                        <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center">
+                            <Logo className="w-6 h-6" forceWhite={true} />
                         </div>
-                        <span className="font-bold text-white text-sm">The Living Lab</span>
+                        <span className="font-bold text-white text-base">The Living Lab</span>
                     </div>
 
-                    <div className="flex-1 flex justify-end">
+                    <div className="flex-1 flex justify-end gap-4">
                         <div className="relative">
                             <button
                                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                                className={`flex items-center gap-2 px-3 py-1.5 text-xs font-medium bg-[#36393f] hover:bg-[#404449] text-gray-200 rounded transition-all ${isAnimating ? 'theme-toggle-bounce-discord' : ''}`}
+                                aria-expanded={isDropdownOpen}
+                                aria-haspopup="true"
+                                aria-label="Theme selector"
+                                className={`flex items-center gap-2 px-3 py-2 text-sm font-medium bg-[#36393f] hover:bg-[#404449] text-gray-200 rounded transition-all ${isAnimating ? 'theme-toggle-bounce-discord' : ''}`}
                             >
-                                <Gamepad2 className="w-3.5 h-3.5" />
+                                <Gamepad2 className="w-4 h-4" aria-hidden="true" />
                             </button>
 
                             {isDropdownOpen && (
@@ -184,8 +188,110 @@ export default function Navbar() {
                                 </>
                             )}
                         </div>
+
+                        {/* Mobile Menu Button */}
+                        <button
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                            aria-expanded={isMobileMenuOpen}
+                            aria-label="Toggle navigation menu"
+                            className="p-2 hover:bg-[#404449] rounded transition-colors"
+                        >
+                            {isMobileMenuOpen ? (
+                                <X className="w-5 h-5 text-gray-200" aria-hidden="true" />
+                            ) : (
+                                <Menu className="w-5 h-5 text-gray-200" aria-hidden="true" />
+                            )}
+                        </button>
                     </div>
                 </nav>
+
+                {/* Mobile Menu Panel */}
+                {isMobileMenuOpen && (
+                    <>
+                        <div
+                            className="fixed inset-0 z-30 bg-black/60"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            aria-hidden="true"
+                        />
+                        <nav
+                            aria-label="Mobile channel navigation"
+                            className="fixed top-16 left-0 right-0 bottom-0 z-40 bg-[#2f3136] overflow-y-auto"
+                        >
+                            {/* Channels */}
+                            <div className="p-3 pt-4">
+                                {/* Portfolio Section */}
+                                <div className="mb-4">
+                                    <div className="flex items-center gap-1 px-2 mb-2 text-xs font-semibold text-gray-400 uppercase tracking-wide">
+                                        <ChevronDown className="w-3 h-3" />
+                                        PORTFOLIO
+                                    </div>
+                                    <Link
+                                        href="/"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className="flex items-center gap-2 px-3 py-2.5 rounded text-gray-300 hover:bg-[#42464d] hover:text-white"
+                                    >
+                                        <Home className="w-5 h-5 opacity-70" />
+                                        <span>home</span>
+                                    </Link>
+                                    <Link
+                                        href="/web-solutions"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className="flex items-center gap-2 px-3 py-2.5 rounded text-gray-300 hover:bg-[#42464d] hover:text-white"
+                                    >
+                                        <Hash className="w-5 h-5 opacity-70" />
+                                        <span>web-solutions</span>
+                                    </Link>
+                                    <Link
+                                        href="/community-solutions"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className="flex items-center gap-2 px-3 py-2.5 rounded text-gray-300 hover:bg-[#42464d] hover:text-white"
+                                    >
+                                        <Hash className="w-5 h-5 opacity-70" />
+                                        <span>community-solutions</span>
+                                    </Link>
+                                </div>
+
+                                {/* Contact Section */}
+                                <div className="mb-4">
+                                    <div className="flex items-center gap-1 px-2 mb-2 text-xs font-semibold text-gray-400 uppercase tracking-wide">
+                                        <ChevronDown className="w-3 h-3" />
+                                        CONTACT
+                                    </div>
+                                    <Link
+                                        href="/process"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className="flex items-center gap-2 px-3 py-2.5 rounded text-gray-300 hover:bg-[#42464d] hover:text-white"
+                                    >
+                                        <Hash className="w-5 h-5 opacity-70" />
+                                        <span>the-process</span>
+                                    </Link>
+                                    <Link
+                                        href="/contact"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className="flex items-center gap-2 px-3 py-2.5 rounded text-gray-300 hover:bg-[#42464d] hover:text-white"
+                                    >
+                                        <Mail className="w-5 h-5 opacity-70" />
+                                        <span>start-a-project</span>
+                                    </Link>
+                                </div>
+                            </div>
+
+                            {/* User Panel at Bottom */}
+                            <div className="absolute bottom-0 left-0 right-0 h-14 bg-[#292b2f] px-4 flex items-center gap-3 border-t border-[#202225]">
+                                <div className="relative">
+                                    <div className="w-9 h-9 rounded-full bg-accent flex items-center justify-center text-white font-bold">
+                                        A
+                                    </div>
+                                    <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-[#3ba55c] rounded-full border-[3px] border-[#292b2f]" />
+                                </div>
+                                <div className="flex-1">
+                                    <div className="text-sm font-medium text-white">Aedwon</div>
+                                    <div className="text-xs text-gray-400">Online</div>
+                                </div>
+                            </div>
+                        </nav>
+                    </>
+                )}
             </>
         );
     }
@@ -265,6 +371,9 @@ export default function Navbar() {
                     <div className="relative">
                         <button
                             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                            aria-expanded={isDropdownOpen}
+                            aria-haspopup="true"
+                            aria-label={`Theme selector, current theme: ${theme}`}
                             className={`flex items-center gap-2 px-3 py-2 text-sm font-medium border border-theme rounded-theme hover:bg-accent-secondary transition-all ${getAnimationClass()}`}
                         >
                             <span className="capitalize">{theme}</span>
@@ -275,6 +384,7 @@ export default function Navbar() {
                                 <div
                                     className="fixed inset-0 z-10"
                                     onClick={() => setIsDropdownOpen(false)}
+                                    aria-hidden="true"
                                 />
                                 <div className="absolute right-0 top-full mt-2 w-48 border border-theme bg-background shadow-theme rounded-theme p-2 z-20 transition-all">
                                     <button
@@ -299,8 +409,104 @@ export default function Navbar() {
                             </>
                         )}
                     </div>
+
+                    {/* Mobile Menu Button */}
+                    <button
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        aria-expanded={isMobileMenuOpen}
+                        aria-label="Toggle mobile menu"
+                        className={`
+                            md:hidden p-2 rounded-theme
+                            ${theme === 'minimalist' ? 'hover:bg-accent-secondary' : ''}
+                            ${theme === 'neubrutalist' ? 'border-2 border-black hover:bg-accent' : ''}
+                        `}
+                    >
+                        {isMobileMenuOpen ? (
+                            <X className="w-6 h-6" aria-hidden="true" />
+                        ) : (
+                            <Menu className="w-6 h-6" aria-hidden="true" />
+                        )}
+                    </button>
                 </div>
             </nav>
+
+            {/* Mobile Menu Overlay */}
+            {isMobileMenuOpen && (
+                <>
+                    <div
+                        className="fixed inset-0 z-40 bg-black/50 md:hidden"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        aria-hidden="true"
+                    />
+                    <nav
+                        aria-label="Mobile navigation"
+                        className={`
+                            fixed top-16 left-0 right-0 z-50 md:hidden
+                            border-b border-theme
+                            ${theme === 'minimalist' ? 'bg-background' : ''}
+                            ${theme === 'neubrutalist' ? 'bg-[#FFFDF5] border-b-[3px] border-black' : ''}
+                        `}
+                    >
+                        <div className="flex flex-col p-4 gap-2">
+                            <Link
+                                href="/"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className={`
+                                    px-4 py-3 font-medium rounded-theme transition-colors
+                                    ${theme === 'minimalist' ? 'hover:bg-accent-secondary' : ''}
+                                    ${theme === 'neubrutalist' ? 'hover:bg-accent border-2 border-black' : ''}
+                                `}
+                            >
+                                Home
+                            </Link>
+                            <Link
+                                href="/web-solutions"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className={`
+                                    px-4 py-3 font-medium rounded-theme transition-colors
+                                    ${theme === 'minimalist' ? 'hover:bg-accent-secondary' : ''}
+                                    ${theme === 'neubrutalist' ? 'hover:bg-accent border-2 border-black' : ''}
+                                `}
+                            >
+                                Web Solutions
+                            </Link>
+                            <Link
+                                href="/community-solutions"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className={`
+                                    px-4 py-3 font-medium rounded-theme transition-colors
+                                    ${theme === 'minimalist' ? 'hover:bg-accent-secondary' : ''}
+                                    ${theme === 'neubrutalist' ? 'hover:bg-accent border-2 border-black' : ''}
+                                `}
+                            >
+                                Community Solutions
+                            </Link>
+                            <Link
+                                href="/process"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className={`
+                                    px-4 py-3 font-medium rounded-theme transition-colors
+                                    ${theme === 'minimalist' ? 'hover:bg-accent-secondary' : ''}
+                                    ${theme === 'neubrutalist' ? 'hover:bg-accent border-2 border-black' : ''}
+                                `}
+                            >
+                                The Process
+                            </Link>
+                            <Link
+                                href="/contact"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className={`
+                                    px-4 py-3 font-bold rounded-theme transition-colors text-center
+                                    ${theme === 'minimalist' ? 'bg-foreground text-background' : ''}
+                                    ${theme === 'neubrutalist' ? 'bg-accent text-black border-[3px] border-black shadow-[2px_2px_0px_#000]' : ''}
+                                `}
+                            >
+                                Start a Project
+                            </Link>
+                        </div>
+                    </nav>
+                </>
+            )}
         </>
     );
 }

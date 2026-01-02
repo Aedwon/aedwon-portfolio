@@ -149,14 +149,14 @@ export default function ProcessPage() {
                     <p className={`mb-6 ${theme === 'minimalist' ? 'opacity-70' : 'text-white/80'}`}>
                         Let&apos;s jump on a quick 15-minute call. I&apos;ll give you honest advice on whether I can help.
                     </p>
-                    <Link href="/contact">
+                    <Link href="/contact" className="w-full sm:w-auto">
                         <button className={`
-                            inline-flex items-center gap-2 px-8 py-4 text-base font-bold transition-all
+                            w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold transition-all
                             ${theme === 'minimalist' ? 'bg-foreground text-background hover:opacity-90' : ''}
                             ${theme === 'neubrutalist' ? 'bg-white text-black border-[3px] border-black shadow-[4px_4px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#000]' : ''}
                             ${theme === 'discord' ? 'bg-white text-accent hover:bg-gray-100 rounded-lg' : ''}
                         `}>
-                            Book a Free Call <ArrowRight className="w-5 h-5" />
+                            Book a Free Call <ArrowRight className="w-5 h-5" aria-hidden="true" />
                         </button>
                     </Link>
                 </div>

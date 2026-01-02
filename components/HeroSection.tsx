@@ -35,25 +35,25 @@ export default function HeroSection() {
                         <span className="text-accent underline decoration-4 underline-offset-4">revenue-generating</span><br />
                         digital products.
                     </h1>
-                    <p className="text-lg md:text-xl opacity-70 max-w-2xl mx-auto mb-8">
+                    <p className="text-base md:text-lg lg:text-xl opacity-70 max-w-2xl mx-auto mb-8 px-4 md:px-0">
                         Trusted by startups and creators to ship fast, scalable web apps and automated community systems that grow businesses on autopilot.
                     </p>
 
                     {/* Tech Ticker / Capabilities */}
                     <div className={`
-                        inline-flex items-center gap-6 px-6 py-3 rounded-full text-sm font-bold opacity-60
+                        inline-flex items-center gap-3 md:gap-6 px-4 md:px-6 py-2 md:py-3 rounded-full text-xs md:text-sm font-bold opacity-60 flex-wrap justify-center
                         ${theme === 'minimalist' ? 'border border-theme' : ''}
                         ${theme === 'neubrutalist' ? 'bg-white border-2 border-black text-black opacity-100' : ''}
                     `}>
                         <span>Next.js</span>
-                        <span>•</span>
+                        <span className="hidden sm:inline">•</span>
                         <span>React</span>
-                        <span>•</span>
+                        <span className="hidden sm:inline">•</span>
                         <span>TypeScript</span>
-                        <span>•</span>
-                        <span>Node.js</span>
-                        <span>•</span>
-                        <span>Discord.js</span>
+                        <span className="hidden md:inline">•</span>
+                        <span className="hidden md:inline">Node.js</span>
+                        <span className="hidden md:inline">•</span>
+                        <span className="hidden md:inline">Discord.js</span>
                     </div>
                 </motion.div>
             </div>
@@ -94,13 +94,13 @@ export default function HeroSection() {
                             <span className="flex items-center gap-2"><Sparkles className="w-4 h-4" /> Built for SEO & Conversions</span>
                         </div>
 
-                        <Link href="/web-solutions">
+                        <Link href="/web-solutions" className="w-full md:w-auto">
                             <button className={`
-                                flex items-center gap-2 px-8 py-4 text-base font-bold transition-all mt-4
+                                w-full md:w-auto flex items-center justify-center gap-2 px-8 py-4 text-base font-bold transition-all mt-4
                                 ${theme === 'minimalist' ? 'bg-foreground text-background hover:opacity-90 rounded-none' : ''}
                                 ${theme === 'neubrutalist' ? 'bg-accent text-black border-[3px] border-black shadow-[4px_4px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#000] rounded-none' : ''}
                             `}>
-                                See What I&apos;ve Built <ArrowRight className="w-5 h-5" />
+                                See What I&apos;ve Built <ArrowRight className="w-5 h-5" aria-hidden="true" />
                             </button>
                         </Link>
                     </div>
@@ -138,13 +138,13 @@ export default function HeroSection() {
                             <span className="flex items-center gap-2"><Sparkles className="w-4 h-4" /> Gamification & Loyalty Systems</span>
                         </div>
 
-                        <Link href="/community-solutions">
+                        <Link href="/community-solutions" className="w-full md:w-auto">
                             <button className={`
-                                flex items-center gap-2 px-8 py-4 text-base font-bold transition-all mt-4
+                                w-full md:w-auto flex items-center justify-center gap-2 px-8 py-4 text-base font-bold transition-all mt-4
                                 ${theme === 'minimalist' ? 'border border-theme hover:bg-accent-secondary rounded-none' : ''}
                                 ${theme === 'neubrutalist' ? 'bg-white text-black border-[3px] border-black shadow-[4px_4px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#000] rounded-none' : ''}
                             `}>
-                                See It In Action <ArrowRight className="w-5 h-5" />
+                                See It In Action <ArrowRight className="w-5 h-5" aria-hidden="true" />
                             </button>
                         </Link>
                     </div>

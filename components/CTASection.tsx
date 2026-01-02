@@ -39,27 +39,27 @@ export default function CTASection() {
                     </p>
 
                     {/* CTA Buttons */}
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-                        <Link href="/contact">
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 mb-12 w-full sm:w-auto px-4 sm:px-0">
+                        <Link href="/contact" className="w-full sm:w-auto">
                             <button className={`
-                                flex items-center gap-2 px-8 py-4 text-lg font-bold transition-all
+                                w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold transition-all
                                 ${theme === 'minimalist' ? 'bg-background text-foreground hover:opacity-90' : ''}
                                 ${theme === 'neubrutalist' ? 'bg-[#FFE66D] text-black border-[3px] border-black shadow-[4px_4px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#000]' : ''}
                                 ${theme === 'discord' ? 'bg-white text-accent hover:bg-gray-100 rounded-theme' : ''}
                             `}>
-                                <Calendar className="w-5 h-5" />
+                                <Calendar className="w-5 h-5" aria-hidden="true" />
                                 Book a Free Call
                             </button>
                         </Link>
 
-                        <Link href="/web-solutions">
+                        <Link href="/web-solutions" className="w-full sm:w-auto">
                             <button className={`
-                                flex items-center gap-2 px-8 py-4 text-lg font-bold transition-all
+                                w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold transition-all
                                 ${theme === 'minimalist' ? 'border border-background/50 hover:bg-background/10' : ''}
                                 ${theme === 'neubrutalist' ? 'bg-white text-black border-[3px] border-black shadow-[4px_4px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#000]' : ''}
                                 ${theme === 'discord' ? 'bg-white/10 text-white border border-white/30 hover:bg-white/20 rounded-theme' : ''}
                             `}>
-                                See My Work <ArrowRight className="w-5 h-5" />
+                                See My Work <ArrowRight className="w-5 h-5" aria-hidden="true" />
                             </button>
                         </Link>
                     </div>

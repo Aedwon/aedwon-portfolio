@@ -7,54 +7,67 @@ export default function ContactPage() {
     const { theme } = useTheme();
 
     return (
-        <main className="min-h-screen flex items-center justify-center px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-24 bg-background transition-colors duration-300">
+        <main className={`
+            flex items-center justify-center px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-24 bg-background transition-colors duration-300
+            ${theme === 'discord' ? 'min-h-full items-start pt-10' : 'min-h-screen'}
+        `}>
 
             <div className={`
         w-full max-w-2xl
         ${theme === 'minimalist' ? '' : ''}
         ${theme === 'neubrutalist' ? '' : ''}
-        ${theme === 'discord' ? '' : ''}
+        ${theme === 'discord' ? 'mt-4' : ''}
       `}>
 
                 <div className="mb-8 flex items-center gap-3">
                     <div className="relative flex h-3 w-3">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                        <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${theme === 'discord' ? 'bg-[#3ba55c]' : 'bg-green-400'}`}></span>
+                        <span className={`relative inline-flex rounded-full h-3 w-3 ${theme === 'discord' ? 'bg-[#3ba55c]' : 'bg-green-500'}`}></span>
                     </div>
-                    <span className="text-sm font-bold tracking-wide uppercase opacity-70">Currently Accepting New Clients</span>
+                    <span className={`text-sm font-bold tracking-wide uppercase opacity-70 ${theme === 'discord' ? 'text-gray-400' : ''}`}>Currently Accepting New Clients</span>
                 </div>
 
-                <h1 className="text-5xl md:text-7xl font-bold font-theme tracking-tight mb-12">
-                    Start a Project
-                </h1>
+                {theme === 'discord' ? (
+                    <div className="mb-12">
+                        <div className="w-16 h-16 bg-[#40444b] rounded-full flex items-center justify-center mb-4">
+                            <span className="text-4xl text-gray-200">#</span>
+                        </div>
+                        <h1 className="text-3xl font-bold text-white mb-2">Welcome to #start-a-project!</h1>
+                        <p className="text-[#b9bbbe]">This is the start of the #start-a-project channel. Fill out the form below to kick off our collaboration.</p>
+                    </div>
+                ) : (
+                    <h1 className="text-5xl md:text-7xl font-bold font-theme tracking-tight mb-12">
+                        Start a Project
+                    </h1>
+                )}
 
                 <form className="flex flex-col gap-6">
 
                     {/* Input Group */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="flex flex-col gap-2">
-                            <label className="text-sm font-bold opacity-70">Name</label>
+                            <label className={`text-sm font-bold opacity-70 ${theme === 'discord' ? 'uppercase text-xs text-[#b9bbbe] opacity-100' : ''}`}>Name</label>
                             <input
                                 type="text"
                                 placeholder={theme === 'discord' ? "username#0000" : "John Doe"}
                                 className={`
-                            w-full p-4 bg-transparent outline-none transition-all
-                            ${theme === 'minimalist' ? 'border-b border-theme focus:border-foreground placeholder:opacity-30' : ''}
+                            w-full p-4 outline-none transition-all
+                            ${theme === 'minimalist' ? 'bg-transparent border-b border-theme focus:border-foreground placeholder:opacity-30' : ''}
                             ${theme === 'neubrutalist' ? 'bg-white border-[3px] border-black shadow-[4px_4px_0px_#000] focus:shadow-[2px_2px_0px_#000] focus:translate-x-[2px] focus:translate-y-[2px]' : ''}
-                            ${theme === 'discord' ? 'bg-[#202225] rounded-theme text-gray-200 placeholder:text-gray-500' : ''}
+                            ${theme === 'discord' ? 'bg-[#40444b] rounded-theme text-gray-200 placeholder:text-gray-500' : ''}
                         `}
                             />
                         </div>
                         <div className="flex flex-col gap-2">
-                            <label className="text-sm font-bold opacity-70">Email</label>
+                            <label className={`text-sm font-bold opacity-70 ${theme === 'discord' ? 'uppercase text-xs text-[#b9bbbe] opacity-100' : ''}`}>Email</label>
                             <input
                                 type="email"
                                 placeholder="john@example.com"
                                 className={`
-                            w-full p-4 bg-transparent outline-none transition-all
-                            ${theme === 'minimalist' ? 'border-b border-theme focus:border-foreground placeholder:opacity-30' : ''}
+                            w-full p-4 outline-none transition-all
+                            ${theme === 'minimalist' ? 'bg-transparent border-b border-theme focus:border-foreground placeholder:opacity-30' : ''}
                             ${theme === 'neubrutalist' ? 'bg-white border-[3px] border-black shadow-[4px_4px_0px_#000] focus:shadow-[2px_2px_0px_#000] focus:translate-x-[2px] focus:translate-y-[2px]' : ''}
-                            ${theme === 'discord' ? 'bg-[#202225] rounded-theme text-gray-200 placeholder:text-gray-500' : ''}
+                            ${theme === 'discord' ? 'bg-[#40444b] rounded-theme text-gray-200 placeholder:text-gray-500' : ''}
                         `}
                             />
                         </div>
@@ -62,13 +75,13 @@ export default function ContactPage() {
 
                     {/* Dropdown / Select */}
                     <div className="flex flex-col gap-2">
-                        <label className="text-sm font-bold opacity-70">Project Type</label>
+                        <label className={`text-sm font-bold opacity-70 ${theme === 'discord' ? 'uppercase text-xs text-[#b9bbbe] opacity-100' : ''}`}>Project Type</label>
                         <div className="relative">
                             <select className={`
-                        w-full p-4 appearance-none outline-none cursor-pointer bg-transparent
-                        ${theme === 'minimalist' ? 'border-b border-theme focus:border-foreground' : ''}
+                        w-full p-4 appearance-none outline-none cursor-pointer
+                        ${theme === 'minimalist' ? 'bg-transparent border-b border-theme focus:border-foreground' : ''}
                         ${theme === 'neubrutalist' ? 'bg-white border-[3px] border-black shadow-[4px_4px_0px_#000] focus:shadow-[2px_2px_0px_#000] focus:translate-x-[2px] focus:translate-y-[2px]' : ''}
-                        ${theme === 'discord' ? 'bg-[#202225] rounded-theme text-gray-200' : ''}
+                        ${theme === 'discord' ? 'bg-[#40444b] rounded-theme text-gray-200' : ''}
                     `}>
                                 <option>Web Development</option>
                                 <option>Discord Community</option>
@@ -82,13 +95,13 @@ export default function ContactPage() {
 
                     {/* Message Area */}
                     <div className="flex flex-col gap-2">
-                        <label className="text-sm font-bold opacity-70">Goal</label>
+                        <label className={`text-sm font-bold opacity-70 ${theme === 'discord' ? 'uppercase text-xs text-[#b9bbbe] opacity-100' : ''}`}>Goal</label>
                         <textarea
                             rows={4}
                             placeholder={theme === 'discord' ? "Message #general..." : "Tell me about your vision..."}
                             className={`
-                         w-full p-4 bg-transparent outline-none transition-all resize-none
-                         ${theme === 'minimalist' ? 'border-b border-theme focus:border-foreground placeholder:opacity-30' : ''}
+                         w-full p-4 outline-none transition-all resize-none
+                         ${theme === 'minimalist' ? 'bg-transparent border-b border-theme focus:border-foreground placeholder:opacity-30' : ''}
                          ${theme === 'neubrutalist' ? 'bg-white border-[3px] border-black shadow-[4px_4px_0px_#000] focus:shadow-[2px_2px_0px_#000] focus:translate-x-[2px] focus:translate-y-[2px]' : ''}
                          ${theme === 'discord' ? 'bg-[#40444b] rounded-theme text-gray-200 placeholder:text-gray-500' : ''}
                     `}

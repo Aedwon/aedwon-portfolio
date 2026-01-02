@@ -40,17 +40,17 @@ export default function Footer() {
                 </div>
 
                 {/* Social Links */}
-                <div className="flex items-center gap-6">
-                    <Link href="https://github.com/Aedwon" target="_blank" className="hover:text-accent transition-colors">
-                        <Github className="w-5 h-5" />
+                <nav aria-label="Social media links" className="flex items-center gap-6">
+                    <Link href="https://github.com/Aedwon" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub profile" className="hover:text-accent transition-colors">
+                        <Github className="w-5 h-5" aria-hidden="true" />
                     </Link>
-                    <Link href="https://linkedin.com/in/aedwon" target="_blank" className="hover:text-accent transition-colors">
-                        <Linkedin className="w-5 h-5" />
+                    <Link href="https://linkedin.com/in/aedwon" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn profile" className="hover:text-accent transition-colors">
+                        <Linkedin className="w-5 h-5" aria-hidden="true" />
                     </Link>
-                    <Link href="https://twitter.com/aedwon" target="_blank" className="hover:text-accent transition-colors">
-                        <Twitter className="w-5 h-5" />
+                    <Link href="https://twitter.com/aedwon" target="_blank" rel="noopener noreferrer" aria-label="Visit Twitter profile" className="hover:text-accent transition-colors">
+                        <Twitter className="w-5 h-5" aria-hidden="true" />
                     </Link>
-                </div>
+                </nav>
 
                 {/* Technical / Credits */}
                 <div className={`
