@@ -13,7 +13,7 @@ export default function HeroSection() {
 
             {/* Personal Intro Section */}
             <div className={`
-                flex flex-col items-center justify-center py-16 px-6 text-center z-10
+                flex flex-col items-center justify-center pt-24 pb-16 px-6 text-center z-10
                 ${theme === 'neubrutalist' ? 'border-b-[3px] border-black bg-[#FFFDF5]' : 'border-b border-theme bg-background'}
             `}>
                 <motion.div
@@ -25,13 +25,13 @@ export default function HeroSection() {
                         text-xl md:text-2xl font-bold mb-4 font-theme opacity-80
                         ${theme === 'discord' ? 'text-accent' : ''}
                     `}>
-                        Hi, I&apos;m Aedwon.
+                        Hey, I&apos;m Aedwon
                     </h2>
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-theme tracking-tight mb-6 max-w-4xl">
-                        I engineer <span className="text-accent underline decoration-4 underline-offset-4">digital ecosystems</span> that actually work.
+                        I turn ideas into <span className="text-accent underline decoration-4 underline-offset-4">revenue-generating</span> digital products.
                     </h1>
                     <p className="text-lg md:text-xl opacity-70 max-w-2xl mx-auto mb-8">
-                        Freelance Web Developer & Community Architect. I build high-performance E-Commerce sites, SaaS platforms, and automated Discord systems that drive real growth.
+                        Trusted by startups and creators to ship fast, scalable web apps and automated community systems that grow businesses on autopilot.
                     </p>
 
                     {/* Tech Ticker / Capabilities */}
@@ -80,18 +80,18 @@ export default function HeroSection() {
 
                         <div>
                             <h2 className="text-3xl md:text-4xl font-bold font-theme tracking-tight mb-2">
-                                Web Development
+                                Web That Sells
                             </h2>
-                            <div className="text-sm font-bold uppercase opacity-60 tracking-wider">Acquisition & Conversion</div>
+                            <div className="text-sm font-bold uppercase opacity-60 tracking-wider">Acquire • Convert • Scale</div>
                         </div>
 
                         <p className="text-lg opacity-80 font-medium">
-                            I build custom, high-speed applications for E-Commerce and SaaS. No bloat, just performance that converts visitors into customers.
+                            Your website should be your best salesperson. I build blazing-fast storefronts and SaaS platforms that turn visitors into paying customers.
                         </p>
 
                         <div className="flex flex-col gap-2 text-sm opacity-70">
-                            <span className="flex items-center gap-2"><Sparkles className="w-4 h-4" /> Next.js & Shopify Solutions</span>
-                            <span className="flex items-center gap-2"><Sparkles className="w-4 h-4" /> &lt; 0.2s Load Times (SEO Optimized)</span>
+                            <span className="flex items-center gap-2"><Sparkles className="w-4 h-4" /> 100/100 Lighthouse Scores</span>
+                            <span className="flex items-center gap-2"><Sparkles className="w-4 h-4" /> Built for SEO & Conversions</span>
                         </div>
 
                         <Link href="/web-solutions">
@@ -101,7 +101,7 @@ export default function HeroSection() {
                                 ${theme === 'neubrutalist' ? 'bg-accent text-black border-[3px] border-black shadow-[4px_4px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#000] rounded-none' : ''}
                                 ${theme === 'discord' ? 'bg-accent text-white hover:opacity-90 rounded-theme' : ''}
                             `}>
-                                View Web Portfolio <ArrowRight className="w-5 h-5" />
+                                See What I&apos;ve Built <ArrowRight className="w-5 h-5" />
                             </button>
                         </Link>
                     </div>
@@ -129,18 +129,18 @@ export default function HeroSection() {
 
                         <div>
                             <h2 className="text-3xl md:text-4xl font-bold font-theme tracking-tight mb-2">
-                                Community Engineering
+                                Communities That Thrive
                             </h2>
-                            <div className="text-sm font-bold uppercase opacity-60 tracking-wider">Retention & Engagement</div>
+                            <div className="text-sm font-bold uppercase opacity-60 tracking-wider">Engage • Retain • Monetize</div>
                         </div>
 
                         <p className="text-lg opacity-80 font-medium">
-                            I architect autonomous Discord bots and gamification systems that keep your community active 24/7 without manual moderation.
+                            Stop babysitting your Discord. I build intelligent bots and systems that keep members engaged, reduce churn, and run your community while you sleep.
                         </p>
 
                         <div className="flex flex-col gap-2 text-sm opacity-70">
-                            <span className="flex items-center gap-2"><Sparkles className="w-4 h-4" /> Custom Bot Development</span>
-                            <span className="flex items-center gap-2"><Sparkles className="w-4 h-4" /> Automated Sentiment Analysis</span>
+                            <span className="flex items-center gap-2"><Sparkles className="w-4 h-4" /> 24/7 Autonomous Moderation</span>
+                            <span className="flex items-center gap-2"><Sparkles className="w-4 h-4" /> Gamification & Loyalty Systems</span>
                         </div>
 
                         <Link href="/community-systems">
@@ -150,7 +150,7 @@ export default function HeroSection() {
                                 ${theme === 'neubrutalist' ? 'bg-white text-black border-[3px] border-black shadow-[4px_4px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#000] rounded-none' : ''}
                                 ${theme === 'discord' ? 'bg-[#4f545c] text-white hover:bg-[#5d6269] rounded-theme' : ''}
                             `}>
-                                Explore Systems <ArrowRight className="w-5 h-5" />
+                                See It In Action <ArrowRight className="w-5 h-5" />
                             </button>
                         </Link>
                     </div>
