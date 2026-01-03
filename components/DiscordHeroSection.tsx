@@ -152,7 +152,7 @@ export default function DiscordHeroSection() {
                         description="Trusted by startups and creators to ship fast, scalable web apps and automated community systems that grow businesses on autopilot."
                         fields={[
                             { name: "Specialties", value: "Next.js • React • TypeScript • Node.js • Discord.js", inline: false },
-                            { name: "Projects Delivered", value: "50+", inline: true },
+                            { name: "Projects Delivered", value: "20+", inline: true },
                             { name: "Response Time", value: "<24h", inline: true },
                         ]}
                         footer="Click a channel on the left to explore my work →"
